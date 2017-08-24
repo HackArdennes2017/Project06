@@ -1,1 +1,14 @@
 @import "~normalize.css";
+@import url('https://rsms.me/interface/interface.css');
+
+html {
+  font-family: Interface, sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}

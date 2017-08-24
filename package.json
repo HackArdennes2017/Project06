@@ -9,6 +9,7 @@
     "prod": "NODE_ENV=production npm start"
   },
   "dependencies": {
+    "basscss": "^8.0.3",
     "compression": "^1.6.2",
     "express": "^4.15.4",
     "history": "^4.6.3",
