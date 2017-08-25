@@ -25,7 +25,15 @@ class Welcome extends Component {
         <div className="justify-center items-center" style={{ marginTop: 70 }}>
           <img height={170} src="/assets/logo.png" />
         </div>
-        <div className="mt4">Sardine. Blabla marketing.</div>
+        <div
+          className="mt4"
+          style={{ fontSize: 30, textAlign: 'center', fontWeight: 'bold' }}
+        >
+          Les Sardines
+        </div>
+        <div className="mt3" style={{ width: 250, textAlign: 'center' }}>
+          Le camping social et solidaire des festivaliers
+        </div>
         <Button
           isLoading={isLoading}
           className="welcome-button"
