@@ -13,6 +13,20 @@ const festivals = [
     picture:
       'http://www.sensationrock.net/wp-content/uploads/2017/02/cabaret-vert.jpg',
   },
+  {
+    name: "Fête de l'Humanité",
+    start: moment('2017-09-15'),
+    end: moment('2017-09-17'),
+    picture:
+      'https://pbs.twimg.com/profile_images/862325842222993408/2icD15Gb.jpg',
+  },
+  {
+    name: 'La Fiesta des Suds',
+    start: moment('2017-10-18'),
+    end: moment('2017-10-21'),
+    picture:
+      'https://statics-infoconcert.digitick.com/media/pub/details/details/fiestadessuds2017_120x150.jpg',
+  },
 ]
 
 @connect(null, { push })
@@ -21,16 +35,27 @@ class Festivals extends Component {
     return (
       <Layout title="Liste des festivals">
         {festivals.map(festival =>
-          <div className="flex-row" key={festival.name}>
-            <div>
-              <img src={festival.picture} style={{ width: 50, height: 50 }} />
-            </div>
-            <div>
+          <div className="item" key={festival.name}>
+            <div
+              className="mr2"
+              style={{
+                width: 50,
+                height: 50,
+                flexShrink: 0,
+                backgroundSize: 'cover',
+                backgroundImage: `url(${festival.picture})`,
+              }}
+            />
+            <div className="justify-center">
               <div>
                 {festival.name}
               </div>
-              <div onClick={() => this.props.push('/home')}>
-                Du {festival.start.format('LL')} au {festival.end.format('LL')}
+              <div
+                onClick={() => this.props.push('/home')}
+                className="mt1"
+                style={{ fontSize: 12, opacity: 0.5 }}
+              >
+                {festival.start.format('L')} au {festival.end.format('L')}
               </div>
             </div>
           </div>,
