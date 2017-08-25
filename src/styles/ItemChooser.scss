@@ -5,7 +5,6 @@
 }
 
 .ItemChooserSection {
-  padding: 20px;
   color: rgba(black, 0.5);
 
   & + .ItemChooserSection {
@@ -15,7 +14,17 @@
 
 .ItemChooserSection--title {
   font-size: 13px;
-  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.ItemChooserChoice--container {
+  width: 90px;
+  flex-shrink: 0;
+
+  &:first-child {
+    margin-left: 10px;
+  }
 }
 
 .ItemChooserChoice {
@@ -24,7 +33,6 @@
   border-radius: 50%;
   background: rgba(black, 0.05);
   border: 1px solid rgba(black, 0.1);
-  margin: 10px 7px;
   position: relative;
 
   .ItemChooserChoice--title {

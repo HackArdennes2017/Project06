@@ -57,18 +57,24 @@ class ItemChooser extends Component {
             {'Catégorie'}
           </div>
           <div
-            className="flex-row flex-wrap justify-center"
-            style={{ margin: -15 }}
+            style={{
+              width: '100%',
+              paddingRight: 10,
+              paddingBottom: 0,
+              overflowX: 'auto',
+            }}
           >
-            {typeChoices.map(choice =>
-              <Choice
-                key={choice.value}
-                isActive={item.type === choice.value}
-                onClick={() => this.handleSetType(choice.value)}
-                label={choice.label}
-                icon={choice.icon}
-              />,
-            )}
+            <div className="flex-row py2" style={{ marginRight: 10 }}>
+              {typeChoices.map(choice =>
+                <Choice
+                  key={choice.value}
+                  isActive={item.type === choice.value}
+                  onClick={() => this.handleSetType(choice.value)}
+                  label={choice.label}
+                  icon={choice.icon}
+                />,
+              )}
+            </div>
           </div>
         </div>
         <div className="ItemChooserSection">
@@ -76,18 +82,24 @@ class ItemChooser extends Component {
             {'Etat'}
           </div>
           <div
-            className="flex-row flex-wrap justify-center"
-            style={{ margin: -15 }}
+            style={{
+              width: '100%',
+              paddingRight: 10,
+              paddingBottom: 0,
+              overflowX: 'auto',
+            }}
           >
-            {qualityChoices.map(choice =>
-              <Choice
-                key={choice.value}
-                isActive={item.quality === choice.value}
-                onClick={() => this.handleSetQuality(choice.value)}
-                label={choice.label}
-                icon={choice.icon}
-              />,
-            )}
+            <div className="flex-row py2">
+              {qualityChoices.map(choice =>
+                <Choice
+                  key={choice.value}
+                  isActive={item.quality === choice.value}
+                  onClick={() => this.handleSetQuality(choice.value)}
+                  label={choice.label}
+                  icon={choice.icon}
+                />,
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -98,17 +110,19 @@ class ItemChooser extends Component {
 function Choice(props) {
   const { onClick, icon, label, isActive } = props
   return (
-    <div
-      onClick={onClick}
-      className={cx('ItemChooserChoice items-center justify-center', {
-        isActive,
-      })}
-    >
-      <div className="imgContainer items-center">
-        {React.createElement(icon)}
-      </div>
-      <div className="ItemChooserChoice--title">
-        {label}
+    <div className="ItemChooserChoice--container">
+      <div
+        onClick={onClick}
+        className={cx('ItemChooserChoice items-center justify-center', {
+          isActive,
+        })}
+      >
+        <div className="imgContainer items-center">
+          {React.createElement(icon)}
+        </div>
+        <div className="ItemChooserChoice--title">
+          {label}
+        </div>
       </div>
     </div>
   )
