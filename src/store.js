@@ -6,7 +6,9 @@ import apiMiddleware from 'middlewares/api'
 import reducer from 'reducers'
 
 const devTools =
-  process.env.__BROWSER__ && window.devToolsExtension ? window.devToolsExtension() : f => f
+  process.env.__BROWSER__ && window.devToolsExtension
+    ? window.devToolsExtension()
+    : f => f
 
 export default (history, initialState) => {
   const middlewares = [routerMiddleware(history), thunk, apiMiddleware]

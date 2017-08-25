@@ -15,7 +15,9 @@ const Html = ({ content, state, stats: { styles, main = 'bundle.js' } }) =>
       {styles && <link href={`/dist/${styles}`} rel="stylesheet" />}
 
       <script
-        dangerouslySetInnerHTML={{ __html: `window.__INITIAL_STATE__ = ${serialize(state)}` }}
+        dangerouslySetInnerHTML={{
+          __html: `window.__INITIAL_STATE__ = ${serialize(state)}`,
+        }}
       />
     </head>
     <body>

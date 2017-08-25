@@ -28,7 +28,13 @@ export default stats => async (req, res) => {
 
     const root = App(store, StaticRouter, { location: req.url, context })
 
-    const page = <Html stats={stats} state={store.getState()} content={renderToString(root)} />
+    const page = (
+      <Html
+        stats={stats}
+        state={store.getState()}
+        content={renderToString(root)}
+      />
+    )
 
     res.end(`<!doctype html>${renderToStaticMarkup(page)}`)
   } catch (err) {
