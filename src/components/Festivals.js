@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import moment from 'moment'
 
+import { fetchItems } from 'action/items'
+
 import Layout from 'components/Layout'
 import Festival from 'components/Festival'
 
@@ -73,12 +75,13 @@ const Label = ({ icon, color, children }) =>
     </div>
   </div>
 
-@connect(null, { push })
+@connect(null, { push, fetchItems })
 class Festivals extends Component {
   state = { search: '', loadingFestival: null }
 
-  handleClickFestival = festival => {
+  handleClickFestival = async festival => {
     this.setState({ loadingFestival: festival })
+    await this.props.fetchItems()
     setTimeout(() => this.props.push(festival.url), 500)
   }
 
