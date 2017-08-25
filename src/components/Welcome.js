@@ -25,7 +25,15 @@ class Welcome extends Component {
         <div className="justify-center items-center" style={{ marginTop: 70 }}>
           <img height={170} src="/assets/logo.png" />
         </div>
-        <div onClick={() => this.props.push('/about')} className="flex-row items-center" style={{ position: 'absolute', top: 15, right: 15, fontSize: 12 }}><i className="material-icons mr1" style={{ fontSize: 18 }}>info</i>À propos</div>
+        <div
+          onClick={() => this.props.push('/about')}
+          className="flex-row items-center"
+          style={{ position: 'absolute', top: 15, right: 15, fontSize: 12 }}
+        >
+          <i className="material-icons mr1" style={{ fontSize: 18 }}>
+            info
+          </i>À propos
+        </div>
         <div
           className="mt4"
           style={{ fontSize: 30, textAlign: 'center', fontWeight: 'bold' }}

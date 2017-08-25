@@ -4,6 +4,7 @@ import About from 'components/About'
 import Festivals from 'components/Festivals'
 import Give from 'components/Give'
 import ComingSoon from 'components/ComingSoon'
+import Summary from 'components/Summary'
 import { fetchItems } from 'action/items'
 
 export default [
@@ -37,5 +38,10 @@ export default [
     path: '/cabaret-vert/give',
     exact: true,
     component: Give,
+  },
+  {
+    path: '/summary',
+    exact: true,
+    component: Summary,
   },
 ]

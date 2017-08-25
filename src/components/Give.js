@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 import cx from 'classnames'
 
 import Layout from 'components/Layout'
@@ -10,7 +11,7 @@ import { createItem } from 'action/items'
 
 import 'styles/give.scss'
 
-@connect(null, { createItem })
+@connect(null, { createItem, push })
 class Give extends Component {
   state = {
     isLoading: false,
@@ -41,6 +42,7 @@ class Give extends Component {
   handleSubmit = async () => {
     this.setState({ isLoading: true })
     await this.props.createItem(this.state.item)
+    setTimeout(() => this.props.push('/summary'), 1000)
   }
 
   render() {
