@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Motion, spring } from 'react-motion'
 import { connect } from 'react-redux'
 import { goBack } from 'react-router-redux'
+import cx from 'classnames'
 
 @connect(null, { goBack })
 class Layout extends Component {
@@ -62,7 +63,7 @@ class Layout extends Component {
                 </div>
               </div>}
             <div
-              className={className}
+              className={cx('flex-auto', className)}
               style={{ opacity: m.opacity }}
               {...props}
             >
