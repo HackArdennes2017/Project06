@@ -63,9 +63,7 @@ class Layout extends Component {
               </div>}
             <div
               className={className}
-              style={{
-                opacity: m.opacity,
-              }}
+              style={{ opacity: m.opacity }}
               {...props}
             >
               {children}

@@ -5,7 +5,7 @@ import Button from 'components/Button'
 class Home extends Component {
   render() {
     return (
-      <Layout className="justify-between">
+      <Layout className="justify-between" title="Cabaret Vert">
         <Button>Je donne</Button>
         <Button>Je récupère</Button>
       </Layout>

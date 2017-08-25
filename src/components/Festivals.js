@@ -68,14 +68,8 @@ class Festivals extends Component {
             >
               <div className="flex-row">
                 <div
-                  className="mr2"
+                  className="mr2 picture"
                   style={{
-                    width: 50,
-                    height: 50,
-                    flexShrink: 0,
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center',
                     backgroundImage: `url(${festival.picture})`,
                   }}
                 />
@@ -83,7 +77,7 @@ class Festivals extends Component {
                   <div>
                     {festival.name}
                   </div>
-                  <div className="mt1" style={{ fontSize: 12, opacity: 0.5 }}>
+                  <div style={{ fontSize: 12, opacity: 0.5 }}>
                     {festival.start.format('L')} au {festival.end.format('L')}
                   </div>
                 </div>
