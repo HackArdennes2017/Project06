@@ -27,11 +27,12 @@ export default ({ item, loadingItem, onClick }) =>
     </div>
     <img
       src="/assets/spinner-black.svg"
-      height="20px"
+      height="30px"
       style={{
-        opacity: loadingItem === item ? 0.3 : 0,
+        opacity: loadingItem === item ? 0.5 : 0,
         transition: '150ms linear opacity',
         marginLeft: 'auto',
+        marginRight: 10,
       }}
     />
     <i className="material-icons">keyboard_arrow_right</i>
