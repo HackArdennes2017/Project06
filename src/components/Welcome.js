@@ -40,8 +40,8 @@ class Welcome extends Component {
         >
           Les Sardines
         </div>
-        <div className="mt3" style={{ width: 250, textAlign: 'center' }}>
-          Le camping social et solidaire des festivaliers
+        <div className="mt3" style={{ width: 270, textAlign: 'center' }}>
+          La plateforme solidaire de matériel de camping pour festivaliers
         </div>
         <Button
           isLoading={isLoading}

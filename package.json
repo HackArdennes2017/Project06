@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "start": "node -r babel-register -r babel-polyfill -r ignore-styles src/server",
-    "api": "nodemon -r babel-register -r babel-polyfill -r ignore-styles src/server/api.js",
+    "api": "nodemon -r babel-register -r babel-polyfill -r ignore-styles src/server/dev-api.js",
     "lint": "eslint src webpack bin",
     "prettier": "prettier --single-quote --trailing-comma all --no-semi --write \"{src,webpack}/**/*.?(js|?(s)css|json)\"",
     "build": "rm -rf dist && NODE_ENV=production webpack --progress --hide-modules --config webpack/build.babel.js",
