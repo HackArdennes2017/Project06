@@ -4,7 +4,7 @@ import { push } from 'react-router-redux'
 import moment from 'moment'
 
 import Layout from 'components/Layout'
-import ListItem from 'components/ListItem'
+import Festival from 'components/Festival'
 
 const passedFestivals = [
   {
@@ -107,10 +107,10 @@ class Festivals extends Component {
           {passedFestivals
             .filter(festival => festival.name.match(new RegExp(search, 'i')))
             .map(festival =>
-              <ListItem
+              <Festival
                 key={festival.name}
-                item={festival}
-                loadingItem={loadingFestival}
+                festival={festival}
+                loadingFestival={loadingFestival}
                 onClick={this.handleClickFestival}
               />,
             )}
@@ -122,10 +122,10 @@ class Festivals extends Component {
           {currentFestivals
             .filter(festival => festival.name.match(new RegExp(search, 'i')))
             .map(festival =>
-              <ListItem
+              <Festival
                 key={festival.name}
-                item={festival}
-                loadingItem={loadingFestival}
+                festival={festival}
+                loadingFestival={loadingFestival}
                 onClick={this.handleClickFestival}
               />,
             )}
@@ -137,10 +137,10 @@ class Festivals extends Component {
           {comingFestivals
             .filter(festival => festival.name.match(new RegExp(search, 'i')))
             .map(festival =>
-              <ListItem
+              <Festival
                 key={festival.name}
-                item={festival}
-                loadingItem={loadingFestival}
+                festival={festival}
+                loadingFestival={loadingFestival}
                 onClick={this.handleClickFestival}
               />,
             )}

@@ -6,7 +6,7 @@ import { fetchItems } from 'action/items'
 
 import Layout from 'components/Layout'
 import Button from 'components/Button'
-import ListItem from 'components/ListItem'
+import Item from 'components/Item'
 
 @connect(
   ({ items }) => ({
@@ -42,7 +42,7 @@ class CabaretVert extends Component {
           </div>
         </div>
         <div>
-          {items.map((item, index) => <ListItem key={index} item={item} />)}
+          {items.map((item, index) => <Item key={index} item={item} />)}
         </div>
       </Layout>
     )

@@ -15,7 +15,7 @@ class Give extends Component {
   state = {
     isLoading: false,
     item: {
-      image: null,
+      picture: null,
       type: 'tent',
       quality: 'used',
     },
@@ -32,7 +32,7 @@ class Give extends Component {
 
     reader.onload = res => {
       const base64 = res.target.result
-      this.setState({ item: { ...this.state.item, image: base64 } })
+      this.setState({ item: { ...this.state.item, picture: base64 } })
     }
 
     reader.readAsDataURL(file)
@@ -85,7 +85,7 @@ class Give extends Component {
         <div className="p3">
           <Button
             isLoading={isLoading}
-            disabled={!item.image}
+            disabled={!item.picture}
             onClick={this.handleSubmit}
           >
             {"C'est parti"}

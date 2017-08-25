@@ -1,33 +1,9 @@
 import React, { Component } from 'react'
 import cx from 'classnames'
 
+import { typeMapping, qualityMapping } from 'helpers/types'
+
 import 'styles/ItemChooser.scss'
-
-const typeChoices = [
-  { value: 'tent', icon: require('assets/icons/tent'), label: 'Tente' },
-  {
-    value: 'sleeping-bag',
-    icon: require('assets/icons/sleeping-bag'),
-    label: 'Duvet',
-  },
-  {
-    value: 'mattress',
-    icon: require('assets/icons/mattress'),
-    label: 'Matelas',
-  },
-  { value: 'chair', icon: require('assets/icons/chair'), label: 'Chaise' },
-]
-
-const qualityChoices = [
-  {
-    value: 'recycle',
-    icon: require('assets/icons/recycle'),
-    label: 'A recycler',
-  },
-  { value: 'bad', icon: require('assets/icons/sadface'), label: 'Déterioré' },
-  { value: 'used', icon: require('assets/icons/used'), label: 'Moyen' },
-  { value: 'good', icon: require('assets/icons/check'), label: 'Neuf' },
-]
 
 class ItemChooser extends Component {
   static defaultProps = {
@@ -65,7 +41,7 @@ class ItemChooser extends Component {
             }}
           >
             <div className="flex-row py2" style={{ marginRight: 10 }}>
-              {typeChoices.map(choice =>
+              {typeMapping.map(choice =>
                 <Choice
                   key={choice.value}
                   isActive={item.type === choice.value}
@@ -90,7 +66,7 @@ class ItemChooser extends Component {
             }}
           >
             <div className="flex-row py2">
-              {qualityChoices.map(choice =>
+              {qualityMapping.map(choice =>
                 <Choice
                   key={choice.value}
                   isActive={item.quality === choice.value}

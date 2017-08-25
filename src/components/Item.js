@@ -1,30 +1,22 @@
 import React from 'react'
 
+import { getLabelType } from 'helpers/types'
+
 export default ({ item, loadingItem, onClick }) =>
   <div
     className="item"
-    key={item.name}
-    style={{
-      opacity: loadingItem && item !== loadingItem ? 0.5 : 1,
-    }}
+    style={{ opacity: loadingItem && item !== loadingItem ? 0.5 : 1 }}
     onClick={loadingItem ? undefined : () => onClick(item)}
   >
     <div className="flex-row">
       <div
         className="mr2 picture"
-        style={{
-          backgroundImage: `url(${item.picture})`,
-        }}
+        style={{ backgroundImage: `url(${item.picture})` }}
       />
       <div className="justify-center">
         <div>
-          {item.name}
+          {getLabelType(item.type)}
         </div>
-        {item.start &&
-          item.end &&
-          <div style={{ fontSize: 12, opacity: 0.5 }}>
-            {item.start.format('L')} au {item.end.format('L')}
-          </div>}
       </div>
     </div>
     <img
