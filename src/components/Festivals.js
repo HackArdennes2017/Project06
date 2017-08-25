@@ -71,10 +71,6 @@ const Label = ({ icon, color, children }) =>
     <div>
       {children}
     </div>
-    <div
-      className="flex-auto ml1"
-      style={{ height: 1, backgroundColor: '#ccc' }}
-    />
   </div>
 
 @connect(null, { push })
