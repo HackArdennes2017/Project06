@@ -1,5 +1,6 @@
 import CabaretVert from 'components/CabaretVert'
 import Welcome from 'components/Welcome'
+import About from 'components/About'
 import Festivals from 'components/Festivals'
 import Give from 'components/Give'
 import ComingSoon from 'components/ComingSoon'
