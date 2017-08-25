@@ -1,10 +1,17 @@
 @import "~normalize.css";
 @import url('https://rsms.me/interface/interface.css');
+@import "~basscss-flexbox/index.css";
+@import "~basscss-margin/index.css";
+@import "~basscss-padding/index.css";
+@import "~basscss-border/index.css";
+@import "~basscss-position/index.css";
 
 html {
   font-family: Interface, sans-serif;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
+  background-color: #ffefd9;
+  color: #65214b;
 }
 
 #root {
@@ -15,6 +22,8 @@ div {
   display: flex;
   flex-direction: column;
 }
+
+.flex-row  { flex-direction: row }
 
 *,
 *:before,
