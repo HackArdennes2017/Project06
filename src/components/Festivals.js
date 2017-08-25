@@ -4,6 +4,7 @@ import { push } from 'react-router-redux'
 import moment from 'moment'
 
 import Layout from 'components/Layout'
+import ListItem from 'components/ListItem'
 
 const passedFestivals = [
   {
@@ -76,43 +77,6 @@ const Label = ({ icon, color, children }) =>
     />
   </div>
 
-const Festival = ({ festival, loadingFestival, onClick }) =>
-  <div
-    className="item"
-    key={festival.name}
-    style={{
-      opacity: loadingFestival && festival !== loadingFestival ? 0.8 : 1,
-    }}
-    onClick={loadingFestival ? undefined : () => onClick(festival)}
-  >
-    <div className="flex-row">
-      <div
-        className="mr2 picture"
-        style={{
-          backgroundImage: `url(${festival.picture})`,
-        }}
-      />
-      <div className="justify-center">
-        <div>
-          {festival.name}
-        </div>
-        <div style={{ fontSize: 12, opacity: 0.5 }}>
-          {festival.start.format('L')} au {festival.end.format('L')}
-        </div>
-      </div>
-    </div>
-    <img
-      src="/assets/spinner-black.svg"
-      height="20px"
-      style={{
-        opacity: loadingFestival === festival ? 0.3 : 0,
-        transition: '150ms linear opacity',
-        marginLeft: 'auto',
-      }}
-    />
-    <i className="material-icons">keyboard_arrow_right</i>
-  </div>
-
 @connect(null, { push })
 class Festivals extends Component {
   state = { search: '', loadingFestival: null }
@@ -147,10 +111,10 @@ class Festivals extends Component {
           {passedFestivals
             .filter(festival => festival.name.match(new RegExp(search, 'i')))
             .map(festival =>
-              <Festival
+              <ListItem
                 key={festival.name}
-                festival={festival}
-                loadingFestival={loadingFestival}
+                item={festival}
+                loadingItem={loadingFestival}
                 onClick={this.handleClickFestival}
               />,
             )}
@@ -162,10 +126,10 @@ class Festivals extends Component {
           {currentFestivals
             .filter(festival => festival.name.match(new RegExp(search, 'i')))
             .map(festival =>
-              <Festival
+              <ListItem
                 key={festival.name}
-                festival={festival}
-                loadingFestival={loadingFestival}
+                item={festival}
+                loadingItem={loadingFestival}
                 onClick={this.handleClickFestival}
               />,
             )}
@@ -177,10 +141,10 @@ class Festivals extends Component {
           {comingFestivals
             .filter(festival => festival.name.match(new RegExp(search, 'i')))
             .map(festival =>
-              <Festival
+              <ListItem
                 key={festival.name}
-                festival={festival}
-                loadingFestival={loadingFestival}
+                item={festival}
+                loadingItem={loadingFestival}
                 onClick={this.handleClickFestival}
               />,
             )}
