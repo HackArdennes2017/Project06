@@ -22,18 +22,10 @@ class Welcome extends Component {
     const { isLoading } = this.state
     return (
       <Layout withNavBar={false} className="flex-auto items-center p3">
-        <div
-          className="justify-center items-center"
-          style={{ width: 80, height: 80, background: 'red' }}
-        >
-          Logo
+        <div className="justify-center items-center" style={{ marginTop: 70 }}>
+          <img height={170} src="/assets/logo.png" />
         </div>
-        <div className="mt4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur
-          sint occaecat cupidatat non proident, sunt in culpa qui officia
-          deserunt mollit anim id est laborum.
-        </div>
+        <div className="mt4">Sardine. Blabla marketing.</div>
         <Button
           isLoading={isLoading}
           className="welcome-button"
