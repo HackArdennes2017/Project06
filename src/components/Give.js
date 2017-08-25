@@ -48,9 +48,9 @@ class Give extends Component {
     return (
       <Layout title="Je donne" backRoute="/cabaret-vert">
         <div className="items-center justify-center" style={{ height: 200 }}>
-          {item.image
+          {item.picture
             ? <img
-                src={item.image}
+                src={item.picture}
                 style={{ maxHeight: 160 }}
                 className="PhotoChosen"
               />
