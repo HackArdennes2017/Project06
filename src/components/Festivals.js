@@ -27,42 +27,70 @@ const festivals = [
     picture:
       'https://statics-infoconcert.digitick.com/media/pub/details/details/fiestadessuds2017_120x150.jpg',
   },
+  {
+    name: 'Festival Les Inrocks',
+    start: moment('2017-11-23'),
+    end: moment('2017-11-26'),
+    picture:
+      'http://special.lesinrocks.com/festival2014/accreditations/img/logo-attente.png',
+  },
 ]
 
 @connect(null, { push })
 class Festivals extends Component {
+  state = { search: '' }
+
   render() {
+    const { search } = this.state
+
     return (
       <Layout title="Liste des festivals">
-        {festivals.map(festival =>
-          <div className="item" key={festival.name}>
-            <div className="flex-row">
-              <div
-                className="mr2"
-                style={{
-                  width: 50,
-                  height: 50,
-                  flexShrink: 0,
-                  backgroundSize: 'cover',
-                  backgroundImage: `url(${festival.picture})`,
-                }}
-              />
-              <div className="justify-center">
-                <div>
-                  {festival.name}
-                </div>
+        <div
+          className="p1 flex-row items-center"
+          style={{ backgroundColor: '#efeff4' }}
+        >
+          <input
+            type="text"
+            placeholder="Rechercher..."
+            style={{ color: '#65214b', backgroundColor: '#efeff4' }}
+            className="flex-auto border-none p1 rounded"
+            onChange={event => this.setState({ search: event.target.value })}
+          />
+          <i className="material-icons">search</i>
+        </div>
+        {festivals
+          .filter(festival => festival.name.match(new RegExp(search, 'i')))
+          .map(festival =>
+            <div className="item" key={festival.name}>
+              <div className="flex-row">
                 <div
-                  onClick={() => this.props.push('/home')}
-                  className="mt1"
-                  style={{ fontSize: 12, opacity: 0.5 }}
-                >
-                  {festival.start.format('L')} au {festival.end.format('L')}
+                  className="mr2"
+                  style={{
+                    width: 50,
+                    height: 50,
+                    flexShrink: 0,
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    backgroundImage: `url(${festival.picture})`,
+                  }}
+                />
+                <div className="justify-center">
+                  <div>
+                    {festival.name}
+                  </div>
+                  <div
+                    onClick={() => this.props.push('/home')}
+                    className="mt1"
+                    style={{ fontSize: 12, opacity: 0.5 }}
+                  >
+                    {festival.start.format('L')} au {festival.end.format('L')}
+                  </div>
                 </div>
               </div>
-            </div>
-            <i className="material-icons">keyboard_arrow_right</i>
-          </div>,
-        )}
+              <i className="material-icons">keyboard_arrow_right</i>
+            </div>,
+          )}
       </Layout>
     )
   }

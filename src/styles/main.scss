@@ -10,7 +10,7 @@
 
 :root {
   --purple: #65214b;
-  --border-color: #efeff4;
+  --border-color: #ddd;
 }
 
 html {
@@ -38,6 +38,11 @@ img {
 div {
   display: flex;
   flex-direction: column;
+}
+
+input:active,
+input:focus {
+  outline: none;
 }
 
 .flex-row {

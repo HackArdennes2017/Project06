@@ -18,14 +18,18 @@ class Layout extends Component {
       <div style={{ height: '100vh' }}>
         {withNavBar &&
           <div style={{ height: 50 }} className="navbar">
-            <div onClick={goBack}>
-              <i className="material-icons">keyboard_arrow_left</i>
-            </div>
+            <i
+              onClick={goBack}
+              className="material-icons"
+              style={{ position: 'relative', fontSize: 35, left: -10 }}
+            >
+              keyboard_arrow_left
+            </i>
             <div>
               {title}
             </div>
             <div>
-              <i className="material-icons">face</i>
+              <i className="material-icons">account_circle</i>
             </div>
           </div>}
         <div className={className} {...props}>
