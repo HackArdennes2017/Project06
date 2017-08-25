@@ -32,7 +32,8 @@ class Welcome extends Component {
         >
           <i className="material-icons mr1" style={{ fontSize: 18 }}>
             info
-          </i>À propos
+          </i>
+          {'Comment ça marche ?'}
         </div>
         <div
           className="mt4"
