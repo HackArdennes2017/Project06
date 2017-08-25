@@ -16,13 +16,14 @@ class Button extends Component {
       className,
       style,
       onClick,
+      disabled,
       ...props
     } = this.props
     return (
       <Motion
         style={{
           offsetY: spring(isLoading ? 100 : 0, springConfig),
-          opacity: spring(isLoading ? 0.9 : 1),
+          opacity: spring(disabled || isLoading ? 0.6 : 1),
         }}
       >
         {m =>
@@ -32,7 +33,7 @@ class Button extends Component {
               opacity: m.opacity,
               ...style,
             }}
-            onClick={isLoading ? undefined : onClick}
+            onClick={isLoading || disabled ? undefined : onClick}
             {...props}
           >
             <div

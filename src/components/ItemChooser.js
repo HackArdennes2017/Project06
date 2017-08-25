@@ -30,6 +30,10 @@ const qualityChoices = [
 ]
 
 class ItemChooser extends Component {
+  static defaultProps = {
+    onChange: () => {}, // eslint-disable-line
+  }
+
   handleSetType = type => {
     this.props.onChange({
       ...this.props.item,

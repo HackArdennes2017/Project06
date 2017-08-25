@@ -12,4 +12,8 @@
   &:focus {
     box-shadow: rgba(black, 0.2) 0 0 12px 2px;
   }
+
+  &.disabled {
+    pointer-events: none;
+  }
 }
