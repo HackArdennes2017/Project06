@@ -14,11 +14,18 @@ api.post('/item', async (req, res) => {
 api.get('/item', async (req, res) => {
   try {
     const items = await Item.find({})
-    console.log(items)
     res.send(items)
   } catch (err) {
     console.log(err)
   }
+})
+
+api.get('/receive-item', async (req, res) => {
+  const { id } = req.query
+  const item = await Item.findById(id)
+  item.inStock = true
+  await item.save()
+  res.send('OK')
 })
 
 export default api

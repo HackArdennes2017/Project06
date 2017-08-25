@@ -7,6 +7,7 @@ const Html = ({ content, state, stats: { styles, main = 'bundle.js' } }) =>
       <title>Sardines</title>
 
       <meta charSet="utf-8" />
+      <meta name="theme-color" content="#65214b" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
       <link

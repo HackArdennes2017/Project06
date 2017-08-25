@@ -1,10 +1,11 @@
-export function createItem(itemBody) {
+export function createItem(itemBody, { onSuccess }) {
   return {
     type: 'API:CREATE_ITEM',
     payload: {
       method: 'POST',
       url: '/item',
       body: itemBody,
+      onSuccess,
     },
   }
 }

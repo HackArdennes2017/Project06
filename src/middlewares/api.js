@@ -8,7 +8,7 @@ export default store => next => async action => {
   const { dispatch } = store
   const prefix = action.type.split(':')[1]
 
-  const { method = 'GET' } = action.payload
+  const { method = 'GET', onSuccess } = action.payload
 
   let { url = '', body } = action.payload
 
@@ -39,4 +39,8 @@ export default store => next => async action => {
       data: resJSON,
     },
   })
+
+  if (onSuccess) {
+    onSuccess(resJSON)
+  }
 }

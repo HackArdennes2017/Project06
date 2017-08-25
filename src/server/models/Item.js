@@ -10,4 +10,5 @@ export default mongoose.model('Item', {
     enum: ['good', 'used', 'bad', 'recycle'],
   },
   picture: String,
+  inStock: { type: Boolean, default: false },
 })

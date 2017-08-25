@@ -11,7 +11,9 @@ class Summary extends Component {
         withoutBack
         className="px3 justify-center items-center"
       >
-        <QRCode value="SALUTASLUT" />
+        <QRCode
+          value={`http://172.16.24.64:3001/receive-item?id=${window.item._id}`}
+        />
         <p className="mt3" style={{ textAlign: 'center' }}>
           Vous pouvez vous diriger vers le point de collecte Sardines pour
           déposer votre matériel. Il se situe à la sortie du camping, sur la

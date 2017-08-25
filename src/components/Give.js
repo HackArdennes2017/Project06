@@ -41,8 +41,14 @@ class Give extends Component {
 
   handleSubmit = async () => {
     this.setState({ isLoading: true })
-    await this.props.createItem(this.state.item)
-    setTimeout(() => this.props.push('/summary'), 1000)
+    await this.props.createItem(this.state.item, {
+      onSuccess: item => {
+        setTimeout(() => {
+          window.item = item
+          this.props.push({ pathname: '/summary' })
+        }, 1000)
+      },
+    })
   }
 
   render() {
