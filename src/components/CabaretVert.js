@@ -20,8 +20,11 @@ class CabaretVert extends Component {
 
     return (
       <Layout title="Cabaret Vert" backRoute="/festivals">
-        <div className="px2 pt3">
-          <Button onClick={() => this.props.push('/cabaret-vert/give')}>
+        <div className="px3 pt3">
+          <Button
+            onClick={() => this.props.push('/cabaret-vert/give')}
+            style={{ backgroundColor: '#fc7772' }}
+          >
             Je donne
           </Button>
           <div className="flex-row items-center my2">
