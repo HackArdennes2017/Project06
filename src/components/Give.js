@@ -41,7 +41,6 @@ class Give extends Component {
   handleSubmit = async () => {
     this.setState({ isLoading: true })
     await this.props.createItem(this.state.item)
-    console.log(`success`)
   }
 
   render() {
@@ -49,29 +48,35 @@ class Give extends Component {
     return (
       <Layout title="Je donne" backRoute="/cabaret-vert">
         <div className="items-center justify-center" style={{ height: 200 }}>
-          <label
-            className={cx(
-              'PhotoButton flex flex-column items-center justify-center',
-              {
-                disabled: isLoading,
-              },
-            )}
-            tabIndex={0}
-          >
-            <input
-              disabled={isLoading}
-              style={{ display: 'none' }}
-              type="file"
-              accept="image/*;capture=camera"
-              onChange={this.handleChangeFile}
-            />
-            <img
-              style={{ marginBottom: -10 }}
-              height="80"
-              src="/assets/icons/camera.svg"
-            />
-            {'Prendre une photo'}
-          </label>
+          {item.image
+            ? <img
+                src={item.image}
+                style={{ maxHeight: 160 }}
+                className="PhotoChosen"
+              />
+            : <label
+                className={cx(
+                  'PhotoButton flex flex-column items-center justify-center',
+                  {
+                    disabled: isLoading,
+                  },
+                )}
+                tabIndex={0}
+              >
+                <input
+                  disabled={isLoading}
+                  style={{ display: 'none' }}
+                  type="file"
+                  accept="image/*;capture=camera"
+                  onChange={this.handleChangeFile}
+                />
+                <img
+                  style={{ marginBottom: -10 }}
+                  height="80"
+                  src="/assets/icons/camera.svg"
+                />
+                {'Prendre une photo'}
+              </label>}
         </div>
         <ItemChooser
           item={item}

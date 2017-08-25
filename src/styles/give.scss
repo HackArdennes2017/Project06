@@ -10,10 +10,14 @@
   font-weight: bold;
 
   &:focus {
-    box-shadow: rgba(black, 0.2) 0 0 12px 2px;
+    box-shadow: rgba(black, 0.2) 0 5px 12px 2px;
   }
 
   &.disabled {
     pointer-events: none;
   }
+}
+
+.PhotoChosen {
+  box-shadow: rgba(black, 0.1) 0 5px 12px 2px;
 }

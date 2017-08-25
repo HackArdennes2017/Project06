@@ -5,7 +5,7 @@ export default ({ item, loadingItem, onClick }) =>
     className="item"
     key={item.name}
     style={{
-      opacity: loadingItem && item !== loadingItem ? 0.8 : 1,
+      opacity: loadingItem && item !== loadingItem ? 0.5 : 1,
     }}
     onClick={loadingItem ? undefined : () => onClick(item)}
   >

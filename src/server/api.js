@@ -38,5 +38,5 @@ api.get('/item', async (req, res) => {
 // ----------------------------------------
 
 api.listen(3001, () => {
-  console.log(`listening on 3001`)
+  console.log(`listening on 3001`) // eslint-disable-line
 })
