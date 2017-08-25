@@ -44,7 +44,7 @@ class Festivals extends Component {
     const { search } = this.state
 
     return (
-      <Layout title="Liste des festivals">
+      <Layout title="Liste des festivals" animateNavBar animateContent>
         <div
           className="p1 flex-row items-center"
           style={{ backgroundColor: '#efeff4' }}

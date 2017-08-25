@@ -62,11 +62,16 @@ input:focus {
   }
 }
 
+.navbar-container {
+  background-color: var(--purple);
+  flex-direction: row;
+}
+
 .navbar {
+  flex-grow: 1;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 0 var(--space-2);
-  background-color: var(--purple);
   color: white;
 }
