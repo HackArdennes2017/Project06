@@ -39,6 +39,7 @@ img {
 div {
   display: flex;
   flex-direction: column;
+  border-color: var(--border-color);
 }
 
 input:active,

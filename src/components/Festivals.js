@@ -46,7 +46,7 @@ class Festivals extends Component {
     return (
       <Layout title="Liste des festivals" animateNavBar animateContent>
         <div
-          className="p1 flex-row items-center"
+          className="p1 flex-row items-center border-bottom"
           style={{ backgroundColor: '#efeff4' }}
         >
           <input
@@ -61,7 +61,11 @@ class Festivals extends Component {
         {festivals
           .filter(festival => festival.name.match(new RegExp(search, 'i')))
           .map(festival =>
-            <div className="item" key={festival.name}>
+            <div
+              className="item"
+              key={festival.name}
+              onClick={() => this.props.push('/home')}
+            >
               <div className="flex-row">
                 <div
                   className="mr2"
@@ -79,11 +83,7 @@ class Festivals extends Component {
                   <div>
                     {festival.name}
                   </div>
-                  <div
-                    onClick={() => this.props.push('/home')}
-                    className="mt1"
-                    style={{ fontSize: 12, opacity: 0.5 }}
-                  >
+                  <div className="mt1" style={{ fontSize: 12, opacity: 0.5 }}>
                     {festival.start.format('L')} au {festival.end.format('L')}
                   </div>
                 </div>
