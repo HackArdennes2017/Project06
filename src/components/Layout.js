@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Motion, spring } from 'react-motion'
 import { connect } from 'react-redux'
-import { goBack } from 'react-router-redux'
+import { goBack, replace } from 'react-router-redux'
 import cx from 'classnames'
 
-@connect(null, { goBack })
+@connect(null, { goBack, replace })
 class Layout extends Component {
   state = {
     hasEntered: false,
@@ -21,6 +21,9 @@ class Layout extends Component {
       className,
       title,
       goBack,
+      backRoute,
+      replace,
+      withoutBack,
       ...props
     } = this.props
     const { hasEntered } = this.state
@@ -42,13 +45,19 @@ class Layout extends Component {
                 className="navbar-container"
               >
                 <div className="navbar">
-                  <i
-                    onClick={goBack}
-                    className="material-icons"
-                    style={{ position: 'relative', fontSize: 35, left: -10 }}
-                  >
-                    keyboard_arrow_left
-                  </i>
+                  {withoutBack
+                    ? <div style={{ width: 35 }} />
+                    : <i
+                        onClick={backRoute ? () => replace(backRoute) : goBack}
+                        className="material-icons"
+                        style={{
+                          position: 'relative',
+                          fontSize: 35,
+                          left: -10,
+                        }}
+                      >
+                        keyboard_arrow_left
+                      </i>}
                   <div
                     style={{
                       transform: `translate3d(0, ${m.offset}%, 0)`,

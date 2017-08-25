@@ -23,7 +23,7 @@ class Give extends Component {
   render() {
     const { items } = this.state
     return (
-      <Layout title="Je donne">
+      <Layout title="Je donne" backRoute="/cabaret-vert">
         <div className="items-center justify-center" style={{ height: 200 }}>
           <div
             className="PhotoButton row items-center justify-center"

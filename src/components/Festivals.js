@@ -86,7 +86,7 @@ class Festivals extends Component {
     const { search, loadingFestival } = this.state
 
     return (
-      <Layout title="Liste des festivals">
+      <Layout title="Liste des festivals" withoutBack>
         <div
           className="p1 flex-row items-center border-bottom"
           style={{ backgroundColor: 'white' }}
