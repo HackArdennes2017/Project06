@@ -8,3 +8,12 @@ export function createItem(itemBody) {
     },
   }
 }
+
+export function fetchItems() {
+  return {
+    type: 'API:GET_ITEMS',
+    payload: {
+      url: '/item',
+    },
+  }
+}

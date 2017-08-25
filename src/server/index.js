@@ -1,3 +1,6 @@
+require('es6-promise').polyfill()
+require('isomorphic-fetch')
+
 import express from 'express'
 import compression from 'compression'
 import path from 'path'

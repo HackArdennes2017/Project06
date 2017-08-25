@@ -20,9 +20,11 @@ export default ({ item, loadingItem, onClick }) =>
         <div>
           {item.name}
         </div>
-        <div style={{ fontSize: 12, opacity: 0.5 }}>
-          {item.start.format('L')} au {item.end.format('L')}
-        </div>
+        {item.start &&
+          item.end &&
+          <div style={{ fontSize: 12, opacity: 0.5 }}>
+            {item.start.format('L')} au {item.end.format('L')}
+          </div>}
       </div>
     </div>
     <img

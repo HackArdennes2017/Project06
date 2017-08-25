@@ -26,6 +26,11 @@ api.post('/item', async (req, res) => {
   res.send(item)
 })
 
+api.get('/item', async (req, res) => {
+  const items = await Item.find({})
+  res.send(items)
+})
+
 // ----------------------------------------
 
 api.listen(3001, () => {

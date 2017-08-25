@@ -3,6 +3,7 @@ import Welcome from 'components/Welcome'
 import Festivals from 'components/Festivals'
 import Give from 'components/Give'
 import ComingSoon from 'components/ComingSoon'
+import { fetchItems } from 'action/items'
 
 export default [
   {
@@ -24,6 +25,7 @@ export default [
     path: '/cabaret-vert',
     exact: true,
     component: CabaretVert,
+    load: ({ dispatch }) => dispatch(fetchItems()),
   },
   {
     path: '/cabaret-vert/give',
