@@ -36,28 +36,31 @@ class Festivals extends Component {
       <Layout title="Liste des festivals">
         {festivals.map(festival =>
           <div className="item" key={festival.name}>
-            <div
-              className="mr2"
-              style={{
-                width: 50,
-                height: 50,
-                flexShrink: 0,
-                backgroundSize: 'cover',
-                backgroundImage: `url(${festival.picture})`,
-              }}
-            />
-            <div className="justify-center">
-              <div>
-                {festival.name}
-              </div>
+            <div className="flex-row">
               <div
-                onClick={() => this.props.push('/home')}
-                className="mt1"
-                style={{ fontSize: 12, opacity: 0.5 }}
-              >
-                {festival.start.format('L')} au {festival.end.format('L')}
+                className="mr2"
+                style={{
+                  width: 50,
+                  height: 50,
+                  flexShrink: 0,
+                  backgroundSize: 'cover',
+                  backgroundImage: `url(${festival.picture})`,
+                }}
+              />
+              <div className="justify-center">
+                <div>
+                  {festival.name}
+                </div>
+                <div
+                  onClick={() => this.props.push('/home')}
+                  className="mt1"
+                  style={{ fontSize: 12, opacity: 0.5 }}
+                >
+                  {festival.start.format('L')} au {festival.end.format('L')}
+                </div>
               </div>
             </div>
+            <i className="material-icons">keyboard_arrow_right</i>
           </div>,
         )}
       </Layout>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { goBack } from 'react-router-redux'
-import cx from 'classnames'
 
 @connect(null, { goBack })
 class Layout extends Component {
@@ -19,13 +18,17 @@ class Layout extends Component {
       <div style={{ height: '100vh' }}>
         {withNavBar &&
           <div style={{ height: 50 }} className="navbar">
-            <div onClick={goBack}>Back</div>
+            <div onClick={goBack}>
+              <i className="material-icons">keyboard_arrow_left</i>
+            </div>
             <div>
               {title}
             </div>
-            <div>Profile</div>
+            <div>
+              <i className="material-icons">face</i>
+            </div>
           </div>}
-        <div className={cx('px3 py1', className)} {...props}>
+        <div className={className} {...props}>
           {children}
         </div>
       </div>

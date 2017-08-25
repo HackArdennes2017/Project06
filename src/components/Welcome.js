@@ -11,10 +11,7 @@ import 'styles/welcome.scss'
 class Welcome extends Component {
   render() {
     return (
-      <Layout
-        withNavBar={false}
-        className="flex-auto items-center p3"
-      >
+      <Layout withNavBar={false} className="flex-auto items-center p3">
         <div
           className="justify-center items-center"
           style={{ width: 80, height: 80, background: 'red' }}

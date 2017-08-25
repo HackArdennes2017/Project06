@@ -4,13 +4,15 @@ import serialize from 'serialize-javascript'
 const Html = ({ content, state, stats: { styles, main = 'bundle.js' } }) =>
   <html>
     <head>
-      <title>
-        {'[::]'}
-      </title>
+      <title>Sardines</title>
 
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+      <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+      />
 
       {styles && <link href={`/dist/${styles}`} rel="stylesheet" />}
 
