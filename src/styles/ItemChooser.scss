@@ -1,0 +1,50 @@
+.ItemChooser {
+  background: white;
+  border-top: 1px solid rgba(black, 0.1);
+  border-bottom: 1px solid rgba(black, 0.1);
+}
+
+.ItemChooserSection {
+  padding: 20px;
+  color: rgba(black, 0.5);
+
+  & + .ItemChooserSection {
+    border-top: 1px solid rgba(black, 0.1);
+  }
+}
+
+.ItemChooserSection--title {
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.ItemChooserChoice {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(black, 0.05);
+  border: 1px solid rgba(black, 0.1);
+  margin: 10px 7px;
+  position: relative;
+
+  .ItemChooserChoice--title {
+    font-size: 10px;
+    margin-top: 45px;
+  }
+
+  .imgContainer {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+
+    img {
+      height: 50px;
+    }
+  }
+
+  &.isActive {
+    background: #fc7772;
+    color: white;
+  }
+}

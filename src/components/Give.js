@@ -2,11 +2,21 @@ import React, { Component } from 'react'
 
 import Layout from 'components/Layout'
 import Button from 'components/Button'
+import ItemChooser from 'components/ItemChooser'
 
 import 'styles/give.scss'
 
 class Give extends Component {
+  state = {
+    items: [
+      {
+        type: 'tent',
+        quality: 'used',
+      },
+    ],
+  }
   render() {
+    const { items } = this.state
     return (
       <Layout title="Je donne">
         <div className="items-center justify-center" style={{ height: 200 }}>
@@ -22,7 +32,13 @@ class Give extends Component {
             {'Prendre une photo'}
           </div>
         </div>
-        <div style={{ height: 200, background: 'white' }}>sdlfjk</div>
+        {items.map((item, i) =>
+          <ItemChooser
+            key={i}
+            item={item}
+            onChange={newItem => this.handleChangeItem(i, newItem)}
+          />,
+        )}
         <div className="px1 py3">
           <Button>
             {"C'est parti"}

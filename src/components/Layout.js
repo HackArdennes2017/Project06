@@ -32,7 +32,7 @@ class Layout extends Component {
         }}
       >
         {m =>
-          <div style={{ height: '100vh' }}>
+          <div style={{ minHeight: '100vh' }}>
             {withNavBar &&
               <div
                 style={{

@@ -1,3 +1,6 @@
 {
   "extends": ["zavatta", "zavatta-react", "prettier", "prettier/react"],
+  "rules": {
+    "react/no-array-index-key": 0,
+  },
 }

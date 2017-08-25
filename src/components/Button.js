@@ -10,7 +10,14 @@ const springConfig = {
 
 class Button extends Component {
   render() {
-    const { children, isLoading, className, style, onClick, ...props } = this.props
+    const {
+      children,
+      isLoading,
+      className,
+      style,
+      onClick,
+      ...props
+    } = this.props
     return (
       <Motion
         style={{
