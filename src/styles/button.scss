@@ -1,9 +1,15 @@
 .button {
+  overflow: hidden;
+  flex-direction: row;
   border: none;
   margin: 0;
-  align-items: center;
   justify-content: center;
-  background: red;
+  background: #67244d;
   border-radius: 100px;
   text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+  user-select: none;
+  cursor: default;
+  height: 50px;
 }

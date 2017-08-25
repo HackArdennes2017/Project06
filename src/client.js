@@ -5,6 +5,7 @@ import createHistory from 'history/createBrowserHistory'
 import { AppContainer } from 'react-hot-loader'
 import moment from 'moment'
 import 'moment/locale/fr'
+
 moment.locale('fr')
 
 import createStore from 'store'
