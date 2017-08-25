@@ -42,10 +42,15 @@ const festivals = [
 
 @connect(null, { push })
 class Festivals extends Component {
-  state = { search: '' }
+  state = { search: '', loadingFestival: null }
+
+  handleClickFestival = festival => {
+    this.setState({ loadingFestival: festival })
+    setTimeout(() => this.props.push(festival.url), 500)
+  }
 
   render() {
-    const { search } = this.state
+    const { search, loadingFestival } = this.state
 
     return (
       <Layout title="Liste des festivals">
@@ -68,7 +73,15 @@ class Festivals extends Component {
             <div
               className="item"
               key={festival.name}
-              onClick={() => this.props.push(festival.url)}
+              style={{
+                opacity:
+                  loadingFestival && festival !== loadingFestival ? 0.8 : 1,
+              }}
+              onClick={
+                loadingFestival
+                  ? undefined
+                  : () => this.handleClickFestival(festival)
+              }
             >
               <div className="flex-row">
                 <div
@@ -86,6 +99,15 @@ class Festivals extends Component {
                   </div>
                 </div>
               </div>
+              <img
+                src="/assets/spinner-black.svg"
+                height="20px"
+                style={{
+                  opacity: loadingFestival === festival ? 0.3 : 0,
+                  transition: '150ms linear opacity',
+                  marginLeft: 'auto',
+                }}
+              />
               <i className="material-icons">keyboard_arrow_right</i>
             </div>,
           )}
