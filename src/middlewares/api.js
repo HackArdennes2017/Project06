@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/api'
+const API_URL = 'http://localhost:3001'
 
 export default store => next => async action => {
   if (!action.type.startsWith('API:')) {
