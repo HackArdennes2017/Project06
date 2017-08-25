@@ -1,4 +1,10 @@
 import express from 'express'
+import mongoose from 'mongoose'
+
+import Item from 'server/models/Item'
+
+// yourope
+mongoose.connect('mongodb://localhost/sardine')
 
 const api = express()
 
@@ -8,7 +14,16 @@ api.use((req, res, next) => {
   next()
 })
 
-api.get('/', (req, res) => res.send('ok'))
+// ---------------------------------------- routes
+
+api.post('/item', async (req, res) => {
+  const itemRaw = req.body
+  const item = new Item(itemRaw)
+  await item.save()
+  res.send(item)
+})
+
+// ----------------------------------------
 
 api.listen(3001, () => {
   console.log(`listening on 3001`)
