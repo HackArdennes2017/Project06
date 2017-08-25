@@ -14,16 +14,10 @@ export default store => next => async action => {
 
   url = `${API_URL}${url}`
 
-  // const { me } = getState()
-
   const headers = {
     Accept: 'application/json',
     'Content-Type': 'application/json',
   }
-
-  // if (me) {
-  //   headers.token = me.get('token')
-  // }
 
   if (body) {
     body = JSON.stringify(body)
