@@ -44,7 +44,7 @@ class Give extends Component {
             onChange={newItem => this.handleChangeItem(i, newItem)}
           />,
         )}
-        <div className="px1 py3">
+        <div className="p3">
           <Button>
             {"C'est parti"}
           </Button>

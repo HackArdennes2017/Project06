@@ -9,7 +9,7 @@ import Button from 'components/Button'
 class CabaretVert extends Component {
   render() {
     return (
-      <Layout title="Cabaret Vert">
+      <Layout title="Cabaret Vert" backRoute="/festivals">
         <div className="px2 py3">
           <Button onClick={() => this.props.push('/cabaret-vert/give')}>
             Je donne
