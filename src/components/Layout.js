@@ -15,8 +15,8 @@ class Layout extends Component {
     const {
       children,
       withNavBar = true,
-      animateNavBar = false,
-      animateContent = false,
+      animateNavBar = true,
+      animateContent = true,
       className,
       title,
       goBack,

@@ -1,6 +1,8 @@
-import Home from 'components/Home'
+import CabaretVert from 'components/CabaretVert'
 import Welcome from 'components/Welcome'
 import Festivals from 'components/Festivals'
+import Give from 'components/Give'
+import ComingSoon from 'components/ComingSoon'
 
 export default [
   {
@@ -9,13 +11,23 @@ export default [
     component: Welcome,
   },
   {
+    path: '/coming-soon',
+    exact: true,
+    component: ComingSoon,
+  },
+  {
     path: '/festivals',
     exact: true,
     component: Festivals,
   },
   {
-    path: '/home',
+    path: '/cabaret-vert',
     exact: true,
-    component: Home,
+    component: CabaretVert,
+  },
+  {
+    path: '/cabaret-vert/give',
+    exact: true,
+    component: Give,
   },
 ]

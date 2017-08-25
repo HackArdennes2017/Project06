@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+
 import Layout from 'components/Layout'
 import Button from 'components/Button'
 
-class Home extends Component {
+class CabaretVert extends Component {
   render() {
     return (
       <Layout className="justify-between" title="Cabaret Vert">
@@ -13,4 +14,4 @@ class Home extends Component {
   }
 }
 
-export default Home
+export default CabaretVert

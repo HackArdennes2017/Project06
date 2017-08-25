@@ -10,6 +10,7 @@ const festivals = [
     name: 'La Cabaret Vert',
     start: moment('2017-08-24'),
     end: moment('2017-08-27'),
+    url: '/cabaret-vert',
     picture:
       'http://www.sensationrock.net/wp-content/uploads/2017/02/cabaret-vert.jpg',
   },
@@ -17,6 +18,7 @@ const festivals = [
     name: "Fête de l'Humanité",
     start: moment('2017-09-15'),
     end: moment('2017-09-17'),
+    url: '/coming-soon',
     picture:
       'https://pbs.twimg.com/profile_images/862325842222993408/2icD15Gb.jpg',
   },
@@ -24,6 +26,7 @@ const festivals = [
     name: 'La Fiesta des Suds',
     start: moment('2017-10-18'),
     end: moment('2017-10-21'),
+    url: '/coming-soon',
     picture:
       'https://statics-infoconcert.digitick.com/media/pub/details/details/fiestadessuds2017_120x150.jpg',
   },
@@ -31,6 +34,7 @@ const festivals = [
     name: 'Festival Les Inrocks',
     start: moment('2017-11-23'),
     end: moment('2017-11-26'),
+    url: '/coming-soon',
     picture:
       'http://special.lesinrocks.com/festival2014/accreditations/img/logo-attente.png',
   },
@@ -44,7 +48,7 @@ class Festivals extends Component {
     const { search } = this.state
 
     return (
-      <Layout title="Liste des festivals" animateNavBar animateContent>
+      <Layout title="Liste des festivals">
         <div
           className="p1 flex-row items-center border-bottom"
           style={{ backgroundColor: '#efeff4' }}
@@ -64,7 +68,7 @@ class Festivals extends Component {
             <div
               className="item"
               key={festival.name}
-              onClick={() => this.props.push('/home')}
+              onClick={() => this.props.push(festival.url)}
             >
               <div className="flex-row">
                 <div
