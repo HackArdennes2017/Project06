@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3001'
+const API_URL = process.env.NODE_ENV === 'production' ? 'https://team06.hackardennes.com/api' : 'http://localhost:3001'
 
 export default store => next => async action => {
   if (!action.type.startsWith('API:')) {

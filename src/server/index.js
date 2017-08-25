@@ -4,9 +4,16 @@ require('isomorphic-fetch')
 import express from 'express'
 import compression from 'compression'
 import path from 'path'
+import bodyParser from 'body-parser'
+import mongoose from 'mongoose'
 
 import config from 'config'
 import render from 'server/render'
+import api from 'server/api'
+
+if (config.env === 'production') {
+  mongoose.connect('mongodb://localhost/sardine')
+}
 
 const server = express()
 
@@ -20,6 +27,9 @@ if (config.env === 'development') {
 }
 
 if (config.env === 'production') {
+  server.use(bodyParser.json({ limit: '50mb' }))
+  server.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
+  server.use('/api', api)
   server.use(compression())
   server.use('/dist', express.static(config.distFolder))
 }

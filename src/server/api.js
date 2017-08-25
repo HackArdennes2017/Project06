@@ -1,27 +1,8 @@
 import express from 'express'
-import mongoose from 'mongoose'
-import bodyParser from 'body-parser'
 
 import Item from 'server/models/Item'
 
-// yourope
-mongoose.connect('mongodb://localhost/sardine')
-
-const api = express()
-
-api.use(bodyParser.json({ limit: '50mb' }))
-api.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
-
-api.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*')
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept',
-  )
-  next()
-})
-
-// ---------------------------------------- routes
+const api = express.Router()
 
 api.post('/item', async (req, res) => {
   const itemRaw = req.body
@@ -31,12 +12,13 @@ api.post('/item', async (req, res) => {
 })
 
 api.get('/item', async (req, res) => {
-  const items = await Item.find({})
-  res.send(items)
+  try {
+    const items = await Item.find({})
+    console.log(items)
+    res.send(items)
+  } catch (err) {
+    console.log(err)
+  }
 })
 
-// ----------------------------------------
-
-api.listen(3001, () => {
-  console.log(`listening on 3001`) // eslint-disable-line
-})
+export default api
