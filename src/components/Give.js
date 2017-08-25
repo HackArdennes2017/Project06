@@ -15,6 +15,11 @@ class Give extends Component {
       },
     ],
   }
+  handleChangeItem = (i, newItem) => {
+    const newItems = [...this.state.items]
+    newItems.splice(i, 1, newItem)
+    this.setState({ items: newItems })
+  }
   render() {
     const { items } = this.state
     return (

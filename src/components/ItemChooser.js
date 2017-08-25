@@ -92,9 +92,10 @@ class ItemChooser extends Component {
 }
 
 function Choice(props) {
-  const { icon, label, isActive } = props
+  const { onClick, icon, label, isActive } = props
   return (
     <div
+      onClick={onClick}
       className={cx('ItemChooserChoice items-center justify-center', {
         isActive,
       })}
