@@ -17,6 +17,11 @@ export default [
     component: ComingSoon,
   },
   {
+    path: '/about',
+    exact: true,
+    component: About,
+  },
+  {
     path: '/festivals',
     exact: true,
     component: Festivals,

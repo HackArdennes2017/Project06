@@ -12,7 +12,7 @@ class Welcome extends Component {
   state = {
     isLoading: false,
   }
-  hanleContinue = () => {
+  handleContinue = () => {
     this.setState({ isLoading: true })
     setTimeout(() => {
       this.props.push('/festivals')
@@ -25,6 +25,7 @@ class Welcome extends Component {
         <div className="justify-center items-center" style={{ marginTop: 70 }}>
           <img height={170} src="/assets/logo.png" />
         </div>
+        <div onClick={() => this.props.push('/about')} className="flex-row items-center" style={{ position: 'absolute', top: 15, right: 15 }}><i className="material-icons mr1">info</i>À propos</div>
         <div
           className="mt4"
           style={{ fontSize: 30, textAlign: 'center', fontWeight: 'bold' }}
@@ -37,7 +38,7 @@ class Welcome extends Component {
         <Button
           isLoading={isLoading}
           className="welcome-button"
-          onClick={this.hanleContinue}
+          onClick={this.handleContinue}
         >
           Continuer
         </Button>
