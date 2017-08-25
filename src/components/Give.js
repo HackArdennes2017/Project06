@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import cx from 'classnames'
 
 import Layout from 'components/Layout'
 import Button from 'components/Button'
 import ItemChooser from 'components/ItemChooser'
 
+import { createItem } from 'action/items'
+
 import 'styles/give.scss'
 
+@connect(null, { createItem })
 class Give extends Component {
   state = {
     isLoading: false,
@@ -36,7 +40,8 @@ class Give extends Component {
 
   handleSubmit = async () => {
     this.setState({ isLoading: true })
-    console.log(`submitting`, this.state)
+    await this.props.createItem(this.state.item)
+    console.log(`success`)
   }
 
   render() {

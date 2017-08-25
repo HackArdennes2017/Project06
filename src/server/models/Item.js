@@ -7,7 +7,7 @@ export default mongoose.model('Item', {
   },
   quality: {
     type: String,
-    enum: ['good', 'medium', 'bad', 'recycle'],
+    enum: ['good', 'used', 'bad', 'recycle'],
   },
-  picture: String,
+  image: String,
 })
