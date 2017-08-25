@@ -4,17 +4,29 @@ import cx from 'classnames'
 import 'styles/ItemChooser.scss'
 
 const typeChoices = [
-  { value: 'tent', icon: 'tent', label: 'Tente' },
-  { value: 'sleeping-bag', icon: 'sleeping-bag', label: 'Duvet' },
-  { value: 'mattress', icon: 'mattress', label: 'Matelas' },
-  { value: 'chair', icon: 'chair', label: 'Chaise' },
+  { value: 'tent', icon: require('assets/icons/tent'), label: 'Tente' },
+  {
+    value: 'sleeping-bag',
+    icon: require('assets/icons/sleeping-bag'),
+    label: 'Duvet',
+  },
+  {
+    value: 'mattress',
+    icon: require('assets/icons/mattress'),
+    label: 'Matelas',
+  },
+  { value: 'chair', icon: require('assets/icons/chair'), label: 'Chaise' },
 ]
 
 const qualityChoices = [
-  { value: 'recycle', icon: 'recycle', label: 'A recycler' },
-  { value: 'bad', icon: 'sadface', label: 'Déterioré' },
-  { value: 'used', icon: 'used', label: 'Moyen' },
-  { value: 'good', icon: 'check', label: 'Neuf' },
+  {
+    value: 'recycle',
+    icon: require('assets/icons/recycle'),
+    label: 'A recycler',
+  },
+  { value: 'bad', icon: require('assets/icons/sadface'), label: 'Déterioré' },
+  { value: 'used', icon: require('assets/icons/used'), label: 'Moyen' },
+  { value: 'good', icon: require('assets/icons/check'), label: 'Neuf' },
 ]
 
 class ItemChooser extends Component {
@@ -88,7 +100,7 @@ function Choice(props) {
       })}
     >
       <div className="imgContainer items-center">
-        <img src={`/assets/icons/${icon}.svg`} />
+        {React.createElement(icon)}
       </div>
       <div className="ItemChooserChoice--title">
         {label}
