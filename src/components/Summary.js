@@ -19,11 +19,16 @@ class Summary extends Component {
   }
   render() {
     const { inStock, isLoading } = this.state
-    const { state: { item = {}, mode } = {} } = this.props.location
+    const { state: { item = {}, mode } = {} } = this.props.location || {}
 
     return (
       <Motion
-        style={{ translate: spring(inStock ? -100 : 0, { ...presets.gentle }) }}
+        style={{
+          translate: spring(inStock ? -100 : 0, {
+            ...presets.gentle,
+            damping: 17,
+          }),
+        }}
       >
         {m =>
           <Layout
@@ -75,17 +80,35 @@ class Summary extends Component {
                   top: 0,
                 }}
               >
-                <i
-                  className="material-icons mb2"
-                  style={{ fontSize: 140, color: '#8bc34a' }}
-                >
-                  check_circle
-                </i>
                 {mode === 'give' &&
-                  <p className="mt2 mb4" style={{ textAlign: 'center' }}>
-                    Merci pour votre en engagement vous venez de gagner 4
-                    crédits, bravo !
-                  </p>}
+                  <img src="/assets/medal.svg" style={{ width: 150 }} />}
+                {mode === 'take' &&
+                  <i
+                    className="material-icons mb2"
+                    style={{ fontSize: 140, color: '#8bc34a' }}
+                  >
+                    check_circle
+                  </i>}
+                {mode === 'give' &&
+                  <div className="mt2 mb4" style={{ textAlign: 'center' }}>
+                    <p className="mb1">
+                      Merci pour votre <strong>engagement</strong> !<br />
+                      Vous êtes désormais un campeur social et solidaire.
+                    </p>
+                    <p className="mb1" style={{ fontSize: 15, opacity: 0.7 }}>
+                      Votre don sera réutilisé ou recyclé économisant ainsi{' '}
+                      <strong style={{ color: '#8bc34a' }}>
+                        2 kg de déchets.
+                      </strong>
+                    </p>
+                    <p className="m0" style={{ fontSize: 15, opacity: 0.7 }}>
+                      Vous venez ainsi de gagner{' '}
+                      <strong style={{ color: '#fbaf5d' }}>
+                        4 crédits
+                      </strong>{' '}
+                      pour votre prochain festival.
+                    </p>
+                  </div>}
                 {mode === 'take' &&
                   <p className="mt2 mb4" style={{ textAlign: 'center' }}>
                     Matériel récupéré ! Profitez bien de votre festival !
