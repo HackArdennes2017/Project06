@@ -39,6 +39,9 @@ class Take extends Component {
   render() {
     const { isLoading } = this.state
     const { item } = this.props
+    if (!item) {
+      return ''
+    }
 
     return (
       <Layout title="Je récupère" backRoute="/cabaret-vert">

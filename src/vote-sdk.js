@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-var candidate_id = '59a1a14282819f67336f2af5'
+global.candidate_id = '59a1a14282819f67336f2af5'
 ;(function(c) {
   var s = document.createElement('script')
   s.src =

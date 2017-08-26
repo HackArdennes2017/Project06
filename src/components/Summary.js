@@ -32,12 +32,10 @@ class Summary extends Component {
     const { item } = this.props
     const { inStock, isLoading } = this.state
 
-    const mode = 'give'
-
     if (!item) {
-      return <div>toto</div>
+      return ''
     }
-
+    const mode = item.inStock ? 'take' : 'give'
     return (
       <Motion
         style={{

@@ -35,6 +35,8 @@ class CabaretVert extends Component {
         ? "Fête de l'humanité"
         : 'Cabaret Vert'
 
+    const availableItems = items.filter(item => item.inStock)
+
     return (
       <Layout title={title} backRoute="/festivals">
         <div className="px3 pt3">
@@ -62,14 +64,14 @@ class CabaretVert extends Component {
         <div className="mb1 center">J&apos;ai besoin de matériel</div>
 
         <TagChooser
-            tags={tagsTypes}
-            onToggle={(tag) => {
-              tag
-            }}
+          tags={tagsTypes}
+          onToggle={tag => {
+            tag
+          }}
         />
 
         <div>
-          {items.map((item, index) =>
+          {availableItems.map((item, index) =>
             <Item
               key={index}
               loadingItem={loadingItem}
