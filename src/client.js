@@ -9,9 +9,7 @@ import { AppContainer } from 'react-hot-loader'
 import moment from 'moment'
 import 'moment/locale/fr'
 
-if (process.env.NODE_ENV === 'production') {
-  require('./vote-sdk')
-}
+import './vote-sdk'
 
 moment.locale('fr')
 

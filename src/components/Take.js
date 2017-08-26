@@ -9,6 +9,8 @@ import {
   getQualityLabel,
 } from 'helpers/types'
 
+import { bookItem } from 'action/items'
+
 import Layout from 'components/Layout'
 import Button from 'components/Button'
 import { Choice } from 'components/ItemChooser'
@@ -17,21 +19,21 @@ import { Choice } from 'components/ItemChooser'
   (state, ownProps) => ({
     item: state.items.find(item => ownProps.match.params.id === item._id),
   }),
-  { push },
+  { push, bookItem },
 )
 class Take extends Component {
   state = { isLoading: false }
 
-  handleSubmit = () => {
+  handleSubmit = async () => {
+    const { item } = this.props
     this.setState({ isLoading: true })
-    setTimeout(
-      () =>
+    await this.props.bookItem(item, {
+      onSuccess: item => {
         this.props.push({
-          pathname: '/summary',
-          state: { item: this.props.item, mode: 'take' },
-        }),
-      1000,
-    )
+          pathname: `/summary/${item._id}`,
+        })
+      },
+    })
   }
 
   render() {

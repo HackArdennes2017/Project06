@@ -9,7 +9,18 @@ import { fetchItems } from 'action/items'
 import Layout from 'components/Layout'
 import Button from 'components/Button'
 
-@connect(null, { push, fetchItems })
+@connect(
+  (state, props) => {
+    let item
+    try {
+      item = state.items.find(item => item._id === props.match.params.id)
+    } catch (err) {} // eslint-disable-line
+    return {
+      item,
+    }
+  },
+  { push, fetchItems },
+)
 class Summary extends Component {
   state = { inStock: false, isLoading: false }
   handleBack = async () => {
@@ -18,8 +29,14 @@ class Summary extends Component {
     this.props.push('/festivals')
   }
   render() {
+    const { item } = this.props
     const { inStock, isLoading } = this.state
-    const { state: { item = {}, mode } = {} } = this.props.location || {}
+
+    const mode = 'give'
+
+    if (!item) {
+      return <div>toto</div>
+    }
 
     return (
       <Motion
@@ -143,7 +160,7 @@ class Summary extends Component {
                   onClick={this.handleBack}
                   style={{ alignSelf: 'stretch' }}
                 >
-                  Revenir à l'accueil
+                  {"Revenir à l'accueil"}
                 </Button>
               </div>
             </div>

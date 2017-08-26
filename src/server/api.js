@@ -41,7 +41,7 @@ api.post('/item', upload.single('picture'), async (req, res) => {
 
 api.get('/item', async (req, res) => {
   try {
-    const items = await Item.find({ inStock: true })
+    const items = await Item.find({})
     res.send(items)
   } catch (err) {
     console.log(err) // eslint-disable-line

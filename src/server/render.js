@@ -22,7 +22,7 @@ export default stats => async (req, res) => {
 
     const store = createStore()
 
-    store.dispatch(fetchItems())
+    await store.dispatch(fetchItems())
 
     const context = {}
     const promises = []
