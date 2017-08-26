@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 
 import {
   getTypeLabel,
@@ -12,22 +13,25 @@ import Layout from 'components/Layout'
 import Button from 'components/Button'
 import { Choice } from 'components/ItemChooser'
 
-@connect((state, ownProps) => ({
-  item: state.items.find(item => ownProps.match.params.id === item._id),
-}))
+@connect(
+  (state, ownProps) => ({
+    item: state.items.find(item => ownProps.match.params.id === item._id),
+  }),
+  { push },
+)
 class Take extends Component {
   state = { isLoading: false }
 
-  handleSubmit = async () => {
+  handleSubmit = () => {
     this.setState({ isLoading: true })
-    await this.props.createItem(this.state.item, {
-      onSuccess: item => {
-        setTimeout(() => {
-          window.item = item
-          this.props.push({ pathname: '/summary' })
-        }, 1000)
-      },
-    })
+    setTimeout(
+      () =>
+        this.props.push({
+          pathname: '/summary',
+          state: { item: this.props.item, mode: 'take' },
+        }),
+      1000,
+    )
   }
 
   render() {

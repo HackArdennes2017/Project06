@@ -19,13 +19,15 @@ class Summary extends Component {
   }
   render() {
     const { inStock, isLoading } = this.state
+    const { state: { item = {}, mode } = {} } = this.props.location
+
     return (
       <Motion
         style={{ translate: spring(inStock ? -100 : 0, { ...presets.gentle }) }}
       >
         {m =>
           <Layout
-            title="Enregistré"
+            title="Récap"
             withoutBack
             onClick={() => this.setState({ inStock: true })}
             style={{ overflowX: 'hidden' }}
@@ -48,17 +50,20 @@ class Summary extends Component {
               >
                 <div style={{ boxShadow: 'rgba(0, 0, 0, 0.2) 0 4px 12px 2px' }}>
                   <QRCode
-                    value={`https://team06.hackardennes.com/api/receive-item?id=${typeof window !==
-                      'undefined' &&
-                      window.item &&
-                      window.item._id}`}
+                    value={`https://team06.hackardennes.com/api/receive-item?id=${item._id}`}
                   />
                 </div>
-                <p className="mt3" style={{ textAlign: 'center' }}>
-                  Vous pouvez vous diriger vers le point de collecte Sardines
-                  pour déposer votre matériel. Il se situe à la sortie du
-                  camping, sur la droite.
-                </p>
+                {mode === 'give' &&
+                  <p className="mt3" style={{ textAlign: 'center' }}>
+                    Vous pouvez vous diriger vers le point de collecte Sardines
+                    pour déposer votre matériel. Il se situe à la sortie du
+                    camping, sur la droite.
+                  </p>}
+                {mode === 'take' &&
+                  <p className="mt3" style={{ textAlign: 'center' }}>
+                    Pour récupérer votre matériel, vous trouverez le dépôt de
+                    stockage Sardines à l&apos;entrée du camping.
+                  </p>}
               </div>
               <div
                 className="px3 justify-center items-center"
@@ -76,10 +81,15 @@ class Summary extends Component {
                 >
                   check_circle
                 </i>
-                <p className="mt2 mb4" style={{ textAlign: 'center' }}>
-                  Merci pour votre en engagement vous venez de gagner 4 crédits,
-                  bravo !
-                </p>
+                {mode === 'give' &&
+                  <p className="mt2 mb4" style={{ textAlign: 'center' }}>
+                    Merci pour votre en engagement vous venez de gagner 4
+                    crédits, bravo !
+                  </p>}
+                {mode === 'take' &&
+                  <p className="mt2 mb4" style={{ textAlign: 'center' }}>
+                    Matériel récupéré ! Profitez bien de votre festival !
+                  </p>}
                 <Button
                   isLoading={isLoading}
                   onClick={this.handleBack}

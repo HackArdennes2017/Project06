@@ -57,8 +57,10 @@ class Give extends Component {
     await this.props.createItem(this.state.item, {
       onSuccess: item => {
         setTimeout(() => {
-          window.item = item
-          this.props.push({ pathname: '/summary' })
+          this.props.push({
+            pathname: '/summary',
+            state: { item, mode: 'give' },
+          })
         }, 1000)
       },
     })
