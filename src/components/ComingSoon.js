@@ -5,8 +5,18 @@ import Layout from 'components/Layout'
 class ComingSoon extends Component {
   render() {
     return (
-      <Layout>
-        {'coming soon. marketing.'}
+      <Layout className="items-center justify-center">
+        <i className="material-icons" style={{ fontSize: 120 }}>
+          access_time
+        </i>
+        <div
+          style={{
+            fontSize: 30,
+            marginTop: 50,
+          }}
+        >
+          {'Coming... soon?'}
+        </div>
       </Layout>
     )
   }
