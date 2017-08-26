@@ -124,7 +124,7 @@ class Summary extends Component {
                     <p className="m0" style={{ fontSize: 15, opacity: 0.7 }}>
                       Vous venez ainsi de gagner{' '}
                       <strong style={{ color: '#fbaf5d' }}>
-                        4 crédits
+                        4 sardines
                       </strong>{' '}
                       pour votre prochain festival.
                     </p>

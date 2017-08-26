@@ -73,7 +73,7 @@ class Layout extends Component {
                   >
                     <i
                       className="material-icons"
-                      onClick={() => this.props.push('/profil')}
+                      onClick={() => this.props.push('/profile')}
                       style={{
                         position: 'relative',
                         left: 7,

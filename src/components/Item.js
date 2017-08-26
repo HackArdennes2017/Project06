@@ -9,7 +9,7 @@ export default ({ item, loadingItem, onClick }) => {
     <div
       className="item"
       style={{ opacity: loadingItem && item !== loadingItem ? 0.5 : 1 }}
-      onClick={loadingItem ? undefined : () => onClick(item)}
+      onClick={loadingItem || !onClick ? undefined : () => onClick(item)}
     >
       <div className="flex-row">
         <div
@@ -46,23 +46,24 @@ export default ({ item, loadingItem, onClick }) => {
             }}
           />}
       </Motion>
-      <Motion
-        style={{
-          offset: spring(isLoading ? 40 : 0),
-          opacity: spring(isLoading ? 0 : 1),
-        }}
-      >
-        {m =>
-          <i
-            style={{
-              opacity: m.opacity,
-              transform: `translate3d(${m.offset}px, 0, 0)`,
-            }}
-            className="material-icons"
-          >
-            keyboard_arrow_right
-          </i>}
-      </Motion>
+      {onClick &&
+        <Motion
+          style={{
+            offset: spring(isLoading ? 40 : 0),
+            opacity: spring(isLoading ? 0 : 1),
+          }}
+        >
+          {m =>
+            <i
+              style={{
+                opacity: m.opacity,
+                transform: `translate3d(${m.offset}px, 0, 0)`,
+              }}
+              className="material-icons"
+            >
+              keyboard_arrow_right
+            </i>}
+        </Motion>}
     </div>
   )
 }

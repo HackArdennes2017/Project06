@@ -1,7 +1,7 @@
 import CabaretVert from 'components/CabaretVert'
 import Welcome from 'components/Welcome'
 import About from 'components/About'
-import Profil from 'components/Profil'
+import Profile from 'components/Profile'
 import Festivals from 'components/Festivals'
 import Give from 'components/Give'
 import ComingSoon from 'components/ComingSoon'
@@ -26,9 +26,10 @@ export default [
     component: About,
   },
   {
-    path: '/profil',
+    path: '/profile',
     exact: true,
-    component: Profil,
+    component: Profile,
+    load: ({ dispatch }) => dispatch(fetchItems()),
   },
   {
     path: '/festivals',
