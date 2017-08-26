@@ -9,7 +9,7 @@ class About extends Component {
         <div className="px2 pt1">
           <h2>Notre vision</h2>
           <p>
-            L&apos;application <strong>Les Sardines</strong> a été pensé pour :
+            L&apos;application <strong>Les Sardines</strong> a été pensée pour :
           </p>
           <ul>
             <li>
@@ -35,7 +35,7 @@ class About extends Component {
             width="80%"
             style={{ margin: '20px auto' }}
           />
-          <h2>Cet outils s’adresse :</h2>
+          <h2>Cet outil s’adresse :</h2>
           <ul>
             <li>
               Aux festivaliers pour
