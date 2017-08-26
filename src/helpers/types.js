@@ -24,6 +24,12 @@ export const qualityMapping = [
   { value: 'good', icon: require('assets/icons/check'), label: 'Bon' },
 ]
 
+const festivalWhenMapping = {
+  passed: ['Passé', '#65214b', 'hourglass_full'],
+  current: ['En cours', '#8bc34a', 'play_circle_filled'],
+  coming: ['À venir', '#fbaf5d', 'event'],
+}
+
 export const getTypeLabel = (type = 'tent') =>
   typeMapping.find(t => t.value === type).label
 
@@ -35,3 +41,7 @@ export const getQualityLabel = (type = 'tent') =>
 
 export const getQualityIcon = (type = 'tent') =>
   qualityMapping.find(q => q.value === type).icon
+
+export const getFestivalWhenLabel = when => festivalWhenMapping[when][0]
+export const getFestivalWhenColor = when => festivalWhenMapping[when][1]
+export const getFestivalWhenIcon = when => festivalWhenMapping[when][2]

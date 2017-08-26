@@ -2,37 +2,43 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import moment from 'moment'
+import groupBy from 'lodash.groupby'
+import Fuse from 'fuse.js'
 
 import { fetchItems } from 'action/items'
 
 import Layout from 'components/Layout'
 import Festival from 'components/Festival'
+import {
+  getFestivalWhenColor,
+  getFestivalWhenIcon,
+  getFestivalWhenLabel,
+} from 'helpers/types'
 
-const passedFestivals = [
+const festivals = [
   {
     name: 'La Fête de la Mirabelle',
     start: moment('2017-08-18'),
     end: moment('2017-08-20'),
     url: '/coming-soon',
     picture: 'mirabelle.jpg',
+    when: 'passed',
   },
-]
-const currentFestivals = [
   {
     name: 'La Cabaret Vert',
     start: moment('2017-08-24'),
     end: moment('2017-08-27'),
     url: '/cabaret-vert',
     picture: 'cabaret-vert.jpg',
+    when: 'current',
   },
-]
-const comingFestivals = [
   {
     name: "Fête de l'Humanité",
     start: moment('2017-09-15'),
     end: moment('2017-09-17'),
     url: '/huma',
     picture: 'huma.jpg',
+    when: 'coming',
   },
   {
     name: 'La Fiesta des Suds',
@@ -40,6 +46,7 @@ const comingFestivals = [
     end: moment('2017-10-21'),
     url: '/coming-soon',
     picture: 'fiesta.jpg',
+    when: 'coming',
   },
   {
     name: 'Festival Les Inrocks',
@@ -47,8 +54,11 @@ const comingFestivals = [
     end: moment('2017-11-26'),
     url: '/coming-soon',
     picture: 'inrocks.jpg',
+    when: 'coming',
   },
 ]
+
+const fuse = new Fuse(festivals, { keys: ['name'] })
 
 const Label = ({ icon, color, children }) =>
   <div
@@ -82,6 +92,8 @@ class Festivals extends Component {
 
   render() {
     const { search, loadingFestival } = this.state
+    const searchFestivals = search ? fuse.search(search) : festivals
+    const groupedFest = groupBy(searchFestivals, 'when')
 
     return (
       <Layout title="Liste des festivals" withoutBack>
@@ -98,50 +110,27 @@ class Festivals extends Component {
           />
           <i className="material-icons">search</i>
         </div>
-        <Label color="#65214b" icon="hourglass_full">
-          Passé
-        </Label>
         <div>
-          {passedFestivals
-            .filter(festival => festival.name.match(new RegExp(search, 'i')))
-            .map(festival =>
-              <Festival
-                key={festival.name}
-                festival={festival}
-                loadingFestival={loadingFestival}
-                onClick={this.handleClickFestival}
-              />,
-            )}
-        </div>
-        <Label color="#8bc34a" icon="play_circle_filled">
-          En cours
-        </Label>
-        <div>
-          {currentFestivals
-            .filter(festival => festival.name.match(new RegExp(search, 'i')))
-            .map(festival =>
-              <Festival
-                key={festival.name}
-                festival={festival}
-                loadingFestival={loadingFestival}
-                onClick={this.handleClickFestival}
-              />,
-            )}
-        </div>
-        <Label color="#fbaf5d" icon="event">
-          À venir
-        </Label>
-        <div>
-          {comingFestivals
-            .filter(festival => festival.name.match(new RegExp(search, 'i')))
-            .map(festival =>
-              <Festival
-                key={festival.name}
-                festival={festival}
-                loadingFestival={loadingFestival}
-                onClick={this.handleClickFestival}
-              />,
-            )}
+          {Object.keys(groupedFest).map(when =>
+            <div key={when}>
+              <Label
+                color={getFestivalWhenColor(when)}
+                icon={getFestivalWhenIcon(when)}
+              >
+                {getFestivalWhenLabel(when)}
+              </Label>
+              <div>
+                {groupedFest[when].map(festival =>
+                  <Festival
+                    key={festival.name}
+                    festival={festival}
+                    loadingFestival={loadingFestival}
+                    onClick={this.handleClickFestival}
+                  />,
+                )}
+              </div>
+            </div>,
+          )}
         </div>
       </Layout>
     )
