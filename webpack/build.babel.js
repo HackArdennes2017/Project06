@@ -17,7 +17,11 @@ export default {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader', 'autoprefixer-loader'],
+          use: [
+            'css-loader?minimize=true',
+            'sass-loader',
+            'autoprefixer-loader?browsers=last 5 versions',
+          ],
         }),
         exclude: /node_modules/,
       },

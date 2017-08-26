@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -e
+
+sed -i 's/var(--space-1)/.5rem/g' dist/*.css
+sed -i 's/var(--space-2)/1rem/g' dist/*.css
+sed -i 's/var(--space-3)/2rem/g' dist/*.css
+sed -i 's/var(--space-4)/4rem/g' dist/*.css
+sed -i 's/var(--border-width)/1px/g' dist/*.css
+sed -i 's/var(--border-radius)/3px/g' dist/*.css
+sed -i 's/var(--z1)/1/g' dist/*.css
+sed -i 's/var(--z2)/2/g' dist/*.css
+sed -i 's/var(--z3)/3/g' dist/*.css
+sed -i 's/var(--z4)/4/g' dist/*.css
+sed -i 's/var(--line-height-1)/1/g' dist/*.css
+sed -i 's/var(--line-height-2)/1.125/g' dist/*.css
+sed -i 's/var(--line-height-3)/1.25/g' dist/*.css
+sed -i 's/var(--line-height-4)/1.5/g' dist/*.css
+sed -i 's/var(--letter-spacing)/1/g' dist/*.css
+sed -i 's/var(--caps-letter-spacing)/.2em/g' dist/*.css
+sed -i 's/var(--bold-font-weight)/bold/g' dist/*.css
+sed -i 's/var(--purple)/#65214b/g' dist/*.css
+sed -i 's/var(--border-color)/#ddd/g' dist/*.css
+sed -i 's/var(--orange)/#fbaf5d/g' dist/*.css
+sed -i 's/var(--green)/#8bc34a/g' dist/*.css
+sed -i 's/.bold{font-weight:var(--bold-font-weight,bold)}//g' dist/*.css
