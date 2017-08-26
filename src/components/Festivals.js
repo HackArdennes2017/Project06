@@ -31,7 +31,7 @@ const comingFestivals = [
     name: "Fête de l'Humanité",
     start: moment('2017-09-15'),
     end: moment('2017-09-17'),
-    url: '/coming-soon',
+    url: '/huma',
     picture: 'huma.jpg',
   },
   {

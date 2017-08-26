@@ -42,6 +42,12 @@ export default [
     load: ({ dispatch }) => dispatch(fetchItems()),
   },
   {
+    path: '/huma',
+    exact: true,
+    component: CabaretVert,
+    load: ({ dispatch }) => dispatch(fetchItems()),
+  },
+  {
     path: '/cabaret-vert/give',
     exact: true,
     component: Give,

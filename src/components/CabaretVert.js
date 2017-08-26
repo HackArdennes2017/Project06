@@ -27,9 +27,13 @@ class CabaretVert extends Component {
   render() {
     const { items } = this.props
     const { loadingItem } = this.state
+    const title =
+      this.props.location.pathname === '/huma'
+        ? "Fête de l'humanité"
+        : 'Cabaret Vert'
 
     return (
-      <Layout title="Cabaret Vert" backRoute="/festivals">
+      <Layout title={title} backRoute="/festivals">
         <div className="px3 pt3">
           <div className="mb1 center">J&apos;aimerai donner du matériel</div>
           <Button
