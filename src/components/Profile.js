@@ -7,6 +7,7 @@ import Item from 'components/Item'
 @connect(({ items }) => ({ item: items[items.length - 1] }))
 class Profile extends Component {
   render() {
+    const { item } = this.props
     return (
       <Layout title="Mon Profil" backRoute="/festivals">
         <div
@@ -44,7 +45,7 @@ class Profile extends Component {
             <i className="material-icons">account_circle</i>
             <input
               type="text"
-              value="Hugo"
+              defaultValue="Hugo"
               style={{ color: '#333', backgroundColor: 'white' }}
               className="ml1 flex-auto border-none p1 rounded"
             />
@@ -56,18 +57,19 @@ class Profile extends Component {
             <i className="material-icons">phone</i>
             <input
               type="text"
-              value="06 77 98 50 12"
+              defaultValue="06 77 98 50 12"
               style={{ color: '#333', backgroundColor: 'white' }}
               className="ml1 flex-auto border-none p1 rounded"
             />
           </div>
         </div>
-        <div className="m2" style={{ textAlign: 'center' }}>
-          Mes objets en ligne
-        </div>
-        <div>
-          <Item item={this.props.item} />
-        </div>
+        {item &&
+          <div>
+            <div>Mes objets en ligne</div>
+            <div>
+              <Item item={item} />
+            </div>
+          </div>}
       </Layout>
     )
   }
