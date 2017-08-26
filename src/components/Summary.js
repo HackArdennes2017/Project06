@@ -81,7 +81,11 @@ class Summary extends Component {
                 }}
               >
                 {mode === 'give' &&
-                  <img src="/assets/medal.svg" style={{ width: 150 }} />}
+                  <img
+                    className="PhotoChosen"
+                    src="/assets/medal.svg"
+                    style={{ width: 150, borderRadius: '50%' }}
+                  />}
                 {mode === 'take' &&
                   <i
                     className="material-icons mb2"
