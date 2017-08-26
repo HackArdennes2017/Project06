@@ -1,4 +1,5 @@
 import React from 'react'
+import { Motion, spring } from 'react-motion'
 
 export default ({ festival, loadingFestival, onClick }) =>
   <div
@@ -22,15 +23,24 @@ export default ({ festival, loadingFestival, onClick }) =>
         </div>
       </div>
     </div>
-    <img
-      src="/assets/spinner-black.svg"
-      height="30px"
+    <Motion
       style={{
-        opacity: loadingFestival === festival ? 0.5 : 0,
-        transition: '150ms linear opacity',
-        marginLeft: 'auto',
-        marginRight: 10,
+        offset: spring(loadingFestival === festival ? 0 : 20),
+        opacity: spring(loadingFestival === festival ? 0.5 : 0),
       }}
-    />
+    >
+      {m =>
+        <img
+          src="/assets/spinner-black.svg"
+          height="30px"
+          style={{
+            opacity: m.opacity,
+            transform: `translate3d(${m.offset}px, 0, 0)`,
+            marginLeft: 'auto',
+            marginRight: 10,
+          }}
+        />}
+    </Motion>
+
     <i className="material-icons">keyboard_arrow_right</i>
   </div>
