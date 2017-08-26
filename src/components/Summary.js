@@ -15,7 +15,7 @@ class Summary extends Component {
   handleBack = async () => {
     this.setState({ isLoading: true })
     await this.props.fetchItems()
-    this.props.push('/cabaret-vert')
+    this.props.push('/festivals')
   }
   render() {
     const { inStock, isLoading } = this.state
@@ -138,7 +138,7 @@ class Summary extends Component {
                   onClick={this.handleBack}
                   style={{ alignSelf: 'stretch' }}
                 >
-                  Revenir au Cabaret Vert
+                  Revenir à l'accueil
                 </Button>
               </div>
             </div>
