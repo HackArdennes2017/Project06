@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { Motion, spring } from 'react-motion'
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
 import { goBack, replace } from 'react-router-redux'
 import cx from 'classnames'
 
-@connect(null, { goBack, replace, push })
+@connect(null, { goBack, replace })
 class Layout extends Component {
   state = {
     hasEntered: false,
