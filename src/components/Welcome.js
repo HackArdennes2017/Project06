@@ -36,7 +36,7 @@ class Welcome extends Component {
           {'Comment ça marche ?'}
         </div>
         <div
-          className="mt4"
+          className="mt3"
           style={{ fontSize: 30, textAlign: 'center', fontWeight: 'bold' }}
         >
           Les Sardines

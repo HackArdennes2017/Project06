@@ -4,7 +4,7 @@ export default ({ festival, loadingFestival, onClick }) =>
   <div
     className="item"
     style={{
-      opacity: loadingFestival && festival !== loadingFestival ? 0.8 : 1,
+      opacity: loadingFestival && festival !== loadingFestival ? 0.5 : 1,
     }}
     onClick={loadingFestival ? undefined : () => onClick(festival)}
   >
