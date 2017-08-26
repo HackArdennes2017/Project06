@@ -15,7 +15,9 @@ export default ({ festival, loadingFestival, onClick }) => {
       <div className="flex-row">
         <div
           className="mr2 picture"
-          style={{ backgroundImage: `url(${festival.picture})` }}
+          style={{
+            backgroundImage: `url(/assets/festivals/${festival.picture})`,
+          }}
         />
         <div className="justify-center">
           <div>

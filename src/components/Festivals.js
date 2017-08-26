@@ -14,8 +14,7 @@ const passedFestivals = [
     start: moment('2017-08-18'),
     end: moment('2017-08-20'),
     url: '/coming-soon',
-    picture:
-      'http://tout-metz.com/wp-content/uploads/2015/08/fetes-mirabelle-metz-2015.jpg',
+    picture: 'mirabelle.jpg',
   },
 ]
 const currentFestivals = [
@@ -24,8 +23,7 @@ const currentFestivals = [
     start: moment('2017-08-24'),
     end: moment('2017-08-27'),
     url: '/cabaret-vert',
-    picture:
-      'http://www.sensationrock.net/wp-content/uploads/2017/02/cabaret-vert.jpg',
+    picture: 'cabaret-vert.jpg',
   },
 ]
 const comingFestivals = [
@@ -34,24 +32,21 @@ const comingFestivals = [
     start: moment('2017-09-15'),
     end: moment('2017-09-17'),
     url: '/coming-soon',
-    picture:
-      'https://pbs.twimg.com/profile_images/862325842222993408/2icD15Gb.jpg',
+    picture: 'huma.jpg',
   },
   {
     name: 'La Fiesta des Suds',
     start: moment('2017-10-18'),
     end: moment('2017-10-21'),
     url: '/coming-soon',
-    picture:
-      'https://statics-infoconcert.digitick.com/media/pub/details/details/fiestadessuds2017_120x150.jpg',
+    picture: 'fiesta.jpg',
   },
   {
     name: 'Festival Les Inrocks',
     start: moment('2017-11-23'),
     end: moment('2017-11-26'),
     url: '/coming-soon',
-    picture:
-      'http://special.lesinrocks.com/festival2014/accreditations/img/logo-attente.png',
+    picture: 'inrocks.jpg',
   },
 ]
 
