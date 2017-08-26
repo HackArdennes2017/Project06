@@ -12,7 +12,7 @@ export default async function resizeImage(filename) {
     const resizeFilenameFull = `${withoutExtFull}_small${extension}`
     const withoutExt = filename.substr(0, filename.lastIndexOf('.'))
     const resizeFilename = `${withoutExt}_small${extension}`
-    await sharp(fullFilename).resize(200, 200).toFile(resizeFilenameFull)
+    await sharp(fullFilename).resize(300, 300).toFile(resizeFilenameFull)
     return resizeFilename
   } catch (e) {
     return ''
