@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { Motion, spring } from 'react-motion'
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 import { goBack, replace } from 'react-router-redux'
 import cx from 'classnames'
 
-@connect(null, { goBack, replace })
+@connect(null, { goBack, replace, push })
 class Layout extends Component {
   state = {
     hasEntered: false,
@@ -72,6 +73,7 @@ class Layout extends Component {
                   >
                     <i
                       className="material-icons"
+                      onClick={() => this.props.push('/profil')}
                       style={{
                         position: 'relative',
                         left: 7,
