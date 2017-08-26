@@ -58,8 +58,7 @@ class Give extends Component {
       onSuccess: item => {
         setTimeout(() => {
           this.props.push({
-            pathname: '/summary',
-            state: { item, mode: 'give' },
+            pathname: `/summary/${item._id}`,
           })
         }, 1000)
       },

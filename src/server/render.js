@@ -6,6 +6,8 @@ import React from 'react'
 import routes from 'routes'
 import createStore from 'store'
 
+import { fetchItems } from 'action/items'
+
 import Html from 'components/Html'
 import App from 'components/App'
 
@@ -19,6 +21,8 @@ export default stats => async (req, res) => {
     }
 
     const store = createStore()
+
+    store.dispatch(fetchItems())
 
     const context = {}
     const promises = []

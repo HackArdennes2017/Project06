@@ -7,7 +7,6 @@ import Give from 'components/Give'
 import ComingSoon from 'components/ComingSoon'
 import Take from 'components/Take'
 import Summary from 'components/Summary'
-import { fetchItems } from 'action/items'
 
 export default [
   {
@@ -29,7 +28,6 @@ export default [
     path: '/profile',
     exact: true,
     component: Profile,
-    load: ({ dispatch }) => dispatch(fetchItems()),
   },
   {
     path: '/festivals',
@@ -40,13 +38,11 @@ export default [
     path: '/cabaret-vert',
     exact: true,
     component: CabaretVert,
-    load: ({ dispatch }) => dispatch(fetchItems()),
   },
   {
     path: '/huma',
     exact: true,
     component: CabaretVert,
-    load: ({ dispatch }) => dispatch(fetchItems()),
   },
   {
     path: '/cabaret-vert/give',
@@ -57,10 +53,9 @@ export default [
     path: '/cabaret-vert/take/:id',
     exact: true,
     component: Take,
-    load: ({ dispatch }) => dispatch(fetchItems()),
   },
   {
-    path: '/summary',
+    path: '/summary/:id',
     exact: true,
     component: Summary,
   },
