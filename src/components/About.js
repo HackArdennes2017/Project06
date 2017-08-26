@@ -29,6 +29,7 @@ class About extends Component {
             </li>
           </ul>
           <img
+            alt="photo1"
             src="/assets/photos/1.jpg"
             height="auto"
             width="80%"

@@ -2,7 +2,7 @@ import React from 'react'
 import serialize from 'serialize-javascript'
 
 const Html = ({ content, state, stats: { styles, main = 'bundle.js' } }) =>
-  <html>
+  <html lang="fr">
     <head>
       <title>Sardines</title>
 

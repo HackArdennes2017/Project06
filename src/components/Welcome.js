@@ -23,7 +23,7 @@ class Welcome extends Component {
     return (
       <Layout withNavBar={false} className="flex-auto items-center p3">
         <div className="justify-center items-center" style={{ marginTop: 70 }}>
-          <img height={170} src="/assets/logo.png" />
+          <img alt="logo" height={170} src="/assets/logo.png" />
         </div>
         <div
           onClick={() => this.props.push('/about')}

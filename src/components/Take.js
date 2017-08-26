@@ -43,6 +43,7 @@ class Take extends Component {
         <div className="">
           <div className="items-center justify-center" style={{ height: 300 }}>
             <img
+              alt="photo"
               className="PhotoChosen"
               src={`/assets/uploads/${item.picture}`}
               style={{ maxHeight: 250 }}

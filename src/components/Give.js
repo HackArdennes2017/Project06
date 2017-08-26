@@ -73,12 +73,14 @@ class Give extends Component {
         <div className="items-center justify-center" style={{ height: 200 }}>
           {isDecoding
             ? <img
+                alt="spinner"
                 src="/assets/spinner-black.svg"
                 height="60px"
                 style={{ opacity: 0.3 }}
               />
             : base64
               ? <img
+                  alt="photo chosen"
                   src={base64}
                   style={{ maxHeight: 160 }}
                   className="PhotoChosen"
@@ -100,6 +102,7 @@ class Give extends Component {
                     onChange={this.handleChangeFile}
                   />
                   <img
+                    alt="camera"
                     style={{ marginBottom: -10 }}
                     height="80"
                     src="/assets/camera.svg"

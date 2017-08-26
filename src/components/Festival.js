@@ -34,6 +34,7 @@ export default ({ festival, loadingFestival, onClick }) => {
       >
         {m =>
           <img
+            alt="spinner"
             src="/assets/spinner-black.svg"
             height="30px"
             style={{

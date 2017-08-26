@@ -56,7 +56,7 @@ class Button extends Component {
                 transform: `translate3d(0, ${100 - m.offsetY}%, 0)`,
               }}
             >
-              <img src="/assets/spinner.svg" height="60%" />
+              <img alt="spinner" src="/assets/spinner.svg" height="60%" />
             </div>
           </div>}
       </Motion>
