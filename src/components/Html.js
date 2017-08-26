@@ -14,6 +14,7 @@ const Html = ({ content, state, stats: { styles, main = 'bundle.js' } }) =>
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet"
       />
+      <link href="https://rsms.me/interface/interface.css" rel="stylesheet" />
 
       {styles && <link href={`/dist/${styles}`} rel="stylesheet" />}
 
