@@ -9,10 +9,12 @@ const storage = multer.diskStorage({
     cb(null, path.resolve(__dirname, '../assets/uploads'))
   },
   filename: (req, file, cb) => {
+    /* eslint-disable */
     crypto.pseudoRandomBytes(16, (err, raw) => {
+      /* eslint-enable */
       cb(
         null,
-        raw.toString('hex') + Date.now() + '.' + mime.extension(file.mimetype),
+        raw.toString('hex') + Date.now() + '.' + mime.extension(file.mimetype), // eslint-disable-line
       )
     })
   },
@@ -38,7 +40,7 @@ api.get('/item', async (req, res) => {
     const items = await Item.find({})
     res.send(items)
   } catch (err) {
-    console.log(err)
+    console.log(err) // eslint-disable-line
   }
 })
 
