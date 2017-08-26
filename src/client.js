@@ -1,7 +1,6 @@
 require('es6-promise').polyfill()
 require('isomorphic-fetch')
 
-import initReactFastclick from 'react-fastclick'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { ConnectedRouter } from 'react-router-redux'
@@ -9,8 +8,6 @@ import createHistory from 'history/createBrowserHistory'
 import { AppContainer } from 'react-hot-loader'
 import moment from 'moment'
 import 'moment/locale/fr'
-
-initReactFastclick()
 
 moment.locale('fr')
 
