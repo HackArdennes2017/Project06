@@ -22,9 +22,9 @@ export default ({ item, loadingItem, onClick }) => {
           <div>
             {getTypeLabel(item.type)}
           </div>
-        </div>
-        <div style={{ fontSize: 12, opacity: 0.5 }}>
-          {getQualityLabel(item.quality)}
+          <div style={{ fontSize: 12, opacity: 0.5 }}>
+            {getQualityLabel(item.quality)}
+          </div>
         </div>
       </div>
       <Motion
