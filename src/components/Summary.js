@@ -41,7 +41,7 @@ class Summary extends Component {
               >
                 <div style={{ boxShadow: 'rgba(0, 0, 0, 0.2) 0 4px 12px 2px' }}>
                   <QRCode
-                    value={`http://172.16.24.64:3001/receive-item?id=${window &&
+                    value={`https://team06.hackardennes.com/api/receive-item?id=${window &&
                       window.item &&
                       window.item._id}`}
                   />
