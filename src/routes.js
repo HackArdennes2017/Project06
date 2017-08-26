@@ -1,6 +1,7 @@
 import CabaretVert from 'components/CabaretVert'
 import Welcome from 'components/Welcome'
 import About from 'components/About'
+import Profil from 'components/Profil'
 import Festivals from 'components/Festivals'
 import Give from 'components/Give'
 import ComingSoon from 'components/ComingSoon'
@@ -23,6 +24,11 @@ export default [
     path: '/about',
     exact: true,
     component: About,
+  },
+  {
+    path: '/profil',
+    exact: true,
+    component: Profil,
   },
   {
     path: '/festivals',
