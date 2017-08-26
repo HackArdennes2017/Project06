@@ -41,7 +41,7 @@ api.post('/item', upload.single('picture'), async (req, res) => {
 
 api.get('/item', async (req, res) => {
   try {
-    const items = await Item.find({})
+    const items = await Item.find({ inStock: true })
     res.send(items)
   } catch (err) {
     console.log(err) // eslint-disable-line
@@ -53,6 +53,12 @@ api.get('/receive-item', async (req, res) => {
   const item = await Item.findById(id)
   item.inStock = true
   await item.save()
+  res.send('OK')
+})
+
+api.get('/take-item', async (req, res) => {
+  const { id } = req.query
+  await Item.findByIdAndRemove(id)
   res.send('OK')
 })
 

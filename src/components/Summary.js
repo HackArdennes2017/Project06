@@ -54,9 +54,14 @@ class Summary extends Component {
                 }}
               >
                 <div style={{ boxShadow: 'rgba(0, 0, 0, 0.2) 0 4px 12px 2px' }}>
-                  <QRCode
-                    value={`https://team06.hackardennes.com/api/receive-item?id=${item._id}`}
-                  />
+                  {mode === 'give' &&
+                    <QRCode
+                      value={`https://team06.hackardennes.com/api/receive-item?id=${item._id}`}
+                    />}
+                  {mode === 'take' &&
+                    <QRCode
+                      value={`https://team06.hackardennes.com/api/take-item?id=${item._id}`}
+                    />}
                 </div>
                 {mode === 'give' &&
                   <p className="mt3" style={{ textAlign: 'center' }}>
