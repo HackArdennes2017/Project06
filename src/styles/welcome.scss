@@ -4,3 +4,105 @@
   left: var(--space-3);
   right: var(--space-3);
 }
+
+.logo-icons-wrapper {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  animation: spin-reverse 40s infinite linear;
+}
+
+.logo-icons {
+  position: absolute;
+  & img {
+    width: 30px;
+  }
+}
+
+.logo-icons:nth-child(odd) {
+  animation: spin-reverse 25s infinite linear;
+  & > .translate {
+    animation: translateX 15s infinite linear;
+    & > .scale {
+      animation: scale1 10s infinite linear;
+    }
+  }
+}
+
+.logo-icons:nth-child(even) {
+  animation: spin 40s infinite linear;
+  & > .translate {
+    animation: translateY 10s infinite linear;
+    & > .scale {
+      animation: scale2 15s infinite linear;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes scale1 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes scale2 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes translateX {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes translateY {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
