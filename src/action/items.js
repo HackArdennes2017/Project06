@@ -4,8 +4,10 @@ export function createItem(itemBody, { onSuccess }) {
     payload: {
       method: 'POST',
       url: '/item',
+      multipart: true,
       body: itemBody,
       onSuccess,
+      headers: {},
     },
   }
 }

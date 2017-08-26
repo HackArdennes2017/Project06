@@ -8,7 +8,6 @@ mongoose.connect('mongodb://localhost/sardine')
 
 const api = express()
 
-api.use(bodyParser.json({ limit: '50mb' }))
 api.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
 
 api.use((req, res, next) => {

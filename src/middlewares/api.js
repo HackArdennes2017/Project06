@@ -1,4 +1,7 @@
-const API_URL = process.env.NODE_ENV === 'production' ? 'https://team06.hackardennes.com/api' : 'http://localhost:3001'
+const API_URL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://team06.hackardennes.com/api'
+    : 'http://localhost:3001'
 
 export default store => next => async action => {
   if (!action.type.startsWith('API:')) {
@@ -8,19 +11,29 @@ export default store => next => async action => {
   const { dispatch } = store
   const prefix = action.type.split(':')[1]
 
-  const { method = 'GET', onSuccess } = action.payload
+  const { method = 'GET', onSuccess, multipart } = action.payload
 
-  let { url = '', body } = action.payload
+  let { url = '', body, headers } = action.payload
 
   url = `${API_URL}${url}`
 
-  const headers = {
+  headers = headers || {
     Accept: 'application/json',
     'Content-Type': 'application/json',
   }
 
   if (body) {
-    body = JSON.stringify(body)
+    if (multipart) {
+      const formData = new FormData()
+      for (const name in body) {
+        if (body.hasOwnProperty(name)) {
+          formData.append(name, body[name])
+        }
+      }
+      body = formData
+    } else {
+      body = JSON.stringify(body)
+    }
   }
 
   const res = await fetch(url, { method, headers, body })

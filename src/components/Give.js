@@ -15,10 +15,12 @@ import 'styles/give.scss'
 class Give extends Component {
   state = {
     isLoading: false,
+    isDecoding: false,
+    base64: null,
     item: {
-      picture: null,
       type: 'tent',
       quality: 'used',
+      picture: null,
     },
   }
 
@@ -26,17 +28,28 @@ class Give extends Component {
 
   handleChangeFile = e => {
     const reader = new FileReader()
-    const file = e.target.files[0]
-    if (!file) {
+    const picture = e.target.files[0]
+    if (!picture) {
       return
     }
 
+    this.setState({
+      isDecoding: true,
+      item: {
+        ...this.state.item,
+        picture,
+      },
+    })
+
     reader.onload = res => {
       const base64 = res.target.result
-      this.setState({ item: { ...this.state.item, picture: base64 } })
+      this.setState({
+        isDecoding: false,
+        base64,
+      })
     }
 
-    reader.readAsDataURL(file)
+    reader.readAsDataURL(picture)
   }
 
   handleSubmit = async () => {
@@ -52,39 +65,45 @@ class Give extends Component {
   }
 
   render() {
-    const { item, isLoading } = this.state
+    const { item, isLoading, isDecoding, base64 } = this.state
     return (
       <Layout title="Je donne" backRoute="/cabaret-vert">
         <div className="items-center justify-center" style={{ height: 200 }}>
-          {item.picture
+          {isDecoding
             ? <img
-                src={item.picture}
-                style={{ maxHeight: 160 }}
-                className="PhotoChosen"
+                src="/assets/spinner-black.svg"
+                height="60px"
+                style={{ opacity: 0.3 }}
               />
-            : <label
-                className={cx(
-                  'PhotoButton flex flex-column items-center justify-center',
-                  {
-                    disabled: isLoading,
-                  },
-                )}
-                tabIndex={0}
-              >
-                <input
-                  disabled={isLoading}
-                  style={{ display: 'none' }}
-                  type="file"
-                  accept="image/*;capture=camera"
-                  onChange={this.handleChangeFile}
+            : base64
+              ? <img
+                  src={base64}
+                  style={{ maxHeight: 160 }}
+                  className="PhotoChosen"
                 />
-                <img
-                  style={{ marginBottom: -10 }}
-                  height="80"
-                  src="/assets/icons/camera.svg"
-                />
-                {'Prendre une photo'}
-              </label>}
+              : <label
+                  className={cx(
+                    'PhotoButton flex flex-column items-center justify-center',
+                    {
+                      disabled: isLoading,
+                    },
+                  )}
+                  tabIndex={0}
+                >
+                  <input
+                    disabled={isLoading}
+                    style={{ display: 'none' }}
+                    type="file"
+                    accept="image/*;capture=camera"
+                    onChange={this.handleChangeFile}
+                  />
+                  <img
+                    style={{ marginBottom: -10 }}
+                    height="80"
+                    src="/assets/icons/camera.svg"
+                  />
+                  {'Prendre une photo'}
+                </label>}
         </div>
         <ItemChooser
           item={item}
@@ -93,7 +112,7 @@ class Give extends Component {
         <div className="p3">
           <Button
             isLoading={isLoading}
-            disabled={!item.picture}
+            disabled={!base64}
             onClick={this.handleSubmit}
           >
             {"C'est parti"}

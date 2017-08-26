@@ -28,6 +28,12 @@ class About extends Component {
               circulaire
             </li>
           </ul>
+          <img
+            src="/assets/photos/1.jpg"
+            height="auto"
+            width="80%"
+            style={{ margin: '20px auto' }}
+          />
         </div>
       </Layout>
     )
