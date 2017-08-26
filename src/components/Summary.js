@@ -4,14 +4,21 @@ import { Motion, spring, presets } from 'react-motion'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 
+import { fetchItems } from 'action/items'
+
 import Layout from 'components/Layout'
 import Button from 'components/Button'
 
-@connect(null, { push })
+@connect(null, { push, fetchItems })
 class Summary extends Component {
-  state = { inStock: false }
+  state = { inStock: false, isLoading: false }
+  handleBack = async () => {
+    this.setState({ isLoading: true })
+    await this.props.fetchItems()
+    this.props.push('/cabaret-vert')
+  }
   render() {
-    const { inStock } = this.state
+    const { inStock, isLoading } = this.state
     return (
       <Motion
         style={{ translate: spring(inStock ? -100 : 0, { ...presets.gentle }) }}
@@ -41,7 +48,8 @@ class Summary extends Component {
               >
                 <div style={{ boxShadow: 'rgba(0, 0, 0, 0.2) 0 4px 12px 2px' }}>
                   <QRCode
-                    value={`https://team06.hackardennes.com/api/receive-item?id=${window &&
+                    value={`https://team06.hackardennes.com/api/receive-item?id=${typeof window !==
+                      'undefined' &&
                       window.item &&
                       window.item._id}`}
                   />
@@ -73,10 +81,11 @@ class Summary extends Component {
                   bravo !
                 </p>
                 <Button
-                  onClick={() => this.props.push('/festivals')}
+                  isLoading={isLoading}
+                  onClick={this.handleBack}
                   style={{ alignSelf: 'stretch' }}
                 >
-                  Accueil
+                  Revenir au Cabaret Vert
                 </Button>
               </div>
             </div>
