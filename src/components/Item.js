@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { getTypeLabel } from 'helpers/types'
+import { getTypeLabel, getQualityLabel } from 'helpers/types'
 
 export default ({ item, loadingItem, onClick }) =>
   <div
@@ -16,6 +16,9 @@ export default ({ item, loadingItem, onClick }) =>
       <div className="justify-center">
         <div>
           {getTypeLabel(item.type)}
+        </div>
+        <div style={{ fontSize: 12, opacity: 0.5 }}>
+          {getQualityLabel(item.quality)}
         </div>
       </div>
     </div>

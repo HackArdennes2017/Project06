@@ -55,7 +55,7 @@ class ItemChooser extends Component {
         </div>
         <div className="ItemChooserSection">
           <div className="ItemChooserSection--title">
-            {'Etat'}
+            {'État'}
           </div>
           <div
             style={{

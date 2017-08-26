@@ -19,8 +19,8 @@ export const qualityMapping = [
     icon: require('assets/icons/recycle'),
     label: 'A recycler',
   },
-  { value: 'bad', icon: require('assets/icons/sadface'), label: 'Déterioré' },
-  { value: 'used', icon: require('assets/icons/used'), label: 'Moyen' },
+  { value: 'bad', icon: require('assets/icons/sadface'), label: 'Usé' },
+  { value: 'used', icon: require('assets/icons/used'), label: 'Passable' },
   { value: 'good', icon: require('assets/icons/check'), label: 'Bon' },
 ]
 
