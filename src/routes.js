@@ -4,6 +4,7 @@ import About from 'components/About'
 import Festivals from 'components/Festivals'
 import Give from 'components/Give'
 import ComingSoon from 'components/ComingSoon'
+import Take from 'components/Take'
 import Summary from 'components/Summary'
 import { fetchItems } from 'action/items'
 
@@ -38,6 +39,12 @@ export default [
     path: '/cabaret-vert/give',
     exact: true,
     component: Give,
+  },
+  {
+    path: '/cabaret-vert/take/:id',
+    exact: true,
+    component: Take,
+    load: ({ dispatch }) => dispatch(fetchItems()),
   },
   {
     path: '/summary',

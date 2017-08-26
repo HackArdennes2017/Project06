@@ -37,7 +37,11 @@
 
   .ItemChooserChoice--title {
     font-size: 10px;
-    margin-top: 45px;
+    margin-top: 40px;
+
+    &.isDisplay {
+      color: var(--purple);
+    }
   }
 
   .imgContainer {
@@ -64,6 +68,15 @@
       path,
       circle {
         fill: white;
+      }
+    }
+  }
+
+  &.isDisplay {
+    svg {
+      path,
+      circle {
+        fill: var(--purple);
       }
     }
   }

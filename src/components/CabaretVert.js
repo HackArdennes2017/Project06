@@ -44,7 +44,13 @@ class CabaretVert extends Component {
         </div>
         <div className="mb1 center">J&apos;ai besoin de matériel</div>
         <div>
-          {items.map((item, index) => <Item key={index} item={item} />)}
+          {items.map((item, index) =>
+            <Item
+              key={index}
+              item={item}
+              onClick={() => this.props.push(`/cabaret-vert/take/${item._id}`)}
+            />,
+          )}
         </div>
       </Layout>
     )

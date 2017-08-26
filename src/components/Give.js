@@ -100,7 +100,7 @@ class Give extends Component {
                   <img
                     style={{ marginBottom: -10 }}
                     height="80"
-                    src="/assets/icons/camera.svg"
+                    src="/assets/camera.svg"
                   />
                   {'Prendre une photo'}
                 </label>}
@@ -115,7 +115,7 @@ class Give extends Component {
             disabled={!base64}
             onClick={this.handleSubmit}
           >
-            {"C'est parti"}
+            {"C'est parti !"}
           </Button>
         </div>
       </Layout>

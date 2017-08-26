@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { getLabelType } from 'helpers/types'
+import { getTypeLabel } from 'helpers/types'
 
 export default ({ item, loadingItem, onClick }) =>
   <div
@@ -15,7 +15,7 @@ export default ({ item, loadingItem, onClick }) =>
       />
       <div className="justify-center">
         <div>
-          {getLabelType(item.type)}
+          {getTypeLabel(item.type)}
         </div>
       </div>
     </div>

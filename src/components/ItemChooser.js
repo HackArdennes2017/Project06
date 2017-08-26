@@ -83,20 +83,20 @@ class ItemChooser extends Component {
   }
 }
 
-function Choice(props) {
-  const { onClick, icon, label, isActive } = props
+export function Choice({ onClick, icon, label, isActive, isDisplay }) {
   return (
     <div className="ItemChooserChoice--container">
       <div
         onClick={onClick}
         className={cx('ItemChooserChoice items-center justify-center', {
           isActive,
+          isDisplay,
         })}
       >
         <div className="imgContainer items-center">
           {React.createElement(icon)}
         </div>
-        <div className="ItemChooserChoice--title">
+        <div className={cx('ItemChooserChoice--title', { isDisplay })}>
           {label}
         </div>
       </div>

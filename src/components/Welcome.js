@@ -49,7 +49,7 @@ class Welcome extends Component {
           className="welcome-button"
           onClick={this.handleContinue}
         >
-          Continuer
+          Je commence !
         </Button>
       </Layout>
     )

@@ -21,8 +21,17 @@ export const qualityMapping = [
   },
   { value: 'bad', icon: require('assets/icons/sadface'), label: 'Déterioré' },
   { value: 'used', icon: require('assets/icons/used'), label: 'Moyen' },
-  { value: 'good', icon: require('assets/icons/check'), label: 'Neuf' },
+  { value: 'good', icon: require('assets/icons/check'), label: 'Bon' },
 ]
 
-export const getLabelType = (type = 'tent') =>
+export const getTypeLabel = (type = 'tent') =>
   typeMapping.find(t => t.value === type).label
+
+export const getTypeIcon = (type = 'tent') =>
+  typeMapping.find(t => t.value === type).icon
+
+export const getQualityLabel = (type = 'tent') =>
+  qualityMapping.find(q => q.value === type).label
+
+export const getQualityIcon = (type = 'tent') =>
+  qualityMapping.find(q => q.value === type).icon
