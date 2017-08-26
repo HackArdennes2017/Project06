@@ -11,6 +11,13 @@ import App from 'components/App'
 
 export default stats => async (req, res) => {
   try {
+    if (req.path === '/' && !req.cookies.SARDINE) {
+      res.cookie('SARDINE', '1', {
+        expires: new Date(Date.now() + 900000),
+        httpOnly: true,
+      })
+      return res.redirect('/onboarding')
+    }
     const store = createStore()
 
     const context = {}

@@ -6,6 +6,7 @@ import compression from 'compression'
 import path from 'path'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
+import cookieParser from 'cookie-parser'
 
 import config from 'config'
 import render from 'server/render'
@@ -25,6 +26,8 @@ const stats =
 if (config.env === 'development') {
   require('./webpack')(server)
 }
+
+server.use(cookieParser())
 
 if (config.env === 'production') {
   server.use(bodyParser.json({ limit: '50mb' }))
