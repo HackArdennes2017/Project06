@@ -13,6 +13,11 @@ export const typeMapping = [
   { value: 'chair', icon: require('assets/icons/chair'), label: 'Chaise' },
 ]
 
+export const tagsTypes = typeMapping.map(el => {
+    return {name: el.label, isActive: false};
+})
+
+
 export const qualityMapping = [
   {
     value: 'recycle',
