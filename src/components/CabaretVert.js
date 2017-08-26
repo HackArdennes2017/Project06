@@ -15,8 +15,18 @@ import Item from 'components/Item'
   { push, fetchItems },
 )
 class CabaretVert extends Component {
+  state = {
+    loadingItem: null,
+  }
+  handleNavigateTo = item => {
+    this.setState({ loadingItem: item })
+    setTimeout(() => {
+      this.props.push(`/cabaret-vert/take/${item._id}`)
+    }, 400)
+  }
   render() {
     const { items } = this.props
+    const { loadingItem } = this.state
 
     return (
       <Layout title="Cabaret Vert" backRoute="/festivals">
@@ -47,8 +57,9 @@ class CabaretVert extends Component {
           {items.map((item, index) =>
             <Item
               key={index}
+              loadingItem={loadingItem}
               item={item}
-              onClick={() => this.props.push(`/cabaret-vert/take/${item._id}`)}
+              onClick={() => this.handleNavigateTo(item)}
             />,
           )}
         </div>

@@ -28,7 +28,7 @@ export default ({ festival, loadingFestival, onClick }) => {
       </div>
       <Motion
         style={{
-          offset: spring(isLoading ? 20 : -10),
+          offset: spring(isLoading ? 30 : -10),
           opacity: spring(isLoading ? 0.5 : 0),
         }}
       >
