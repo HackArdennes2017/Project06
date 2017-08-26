@@ -66,8 +66,19 @@ class Layout extends Component {
                   >
                     {title}
                   </div>
-                  <div>
-                    <i className="material-icons">account_circle</i>
+                  <div
+                    className="justify-center items-center"
+                    style={{ width: 35, height: 35 }}
+                  >
+                    <i
+                      className="material-icons"
+                      style={{
+                        position: 'relative',
+                        left: 7,
+                      }}
+                    >
+                      account_circle
+                    </i>
                   </div>
                 </div>
               </div>}
