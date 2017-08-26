@@ -7,15 +7,17 @@ class Profil extends Component {
     return (
       <Layout title="Mon Profil" backRoute="/festivals">
         <div className="flex-auto items-center">
-          <div className="flex-row m2" style={{ width: "100%", justifyContent: "space-around" }}>
-            <div>
-              2 Badges
-            </div>
-            <div>
-              $6 Sardines
-            </div>
+          <div
+            className="flex-row m2"
+            style={{ width: '100%', justifyContent: 'space-around' }}
+          >
+            <div>2 Badges</div>
+            <div>$6 Sardines</div>
           </div>
-          <div className="p1 flex-row items-center item" style={{ backgroundColor: 'white', width: '100%' }}>
+          <div
+            className="p1 flex-row items-center item"
+            style={{ backgroundColor: 'white', width: '100%' }}
+          >
             <i className="material-icons">account_circle</i>
             <input
               type="text"
@@ -24,7 +26,10 @@ class Profil extends Component {
               className="ml1 flex-auto border-none p1 rounded"
             />
           </div>
-          <div className="p1 flex-row items-center item" style={{ backgroundColor: 'white', width: '100%' }}>
+          <div
+            className="p1 flex-row items-center item"
+            style={{ backgroundColor: 'white', width: '100%' }}
+          >
             <i className="material-icons">phone</i>
             <input
               type="text"
@@ -33,7 +38,7 @@ class Profil extends Component {
               className="ml1 flex-auto border-none p1 rounded"
             />
           </div>
-          <div className="m2"  style={{ textAlign: 'center' }}>
+          <div className="m2" style={{ textAlign: 'center' }}>
             Mes objets en ligne
           </div>
         </div>
