@@ -1,0 +1,21 @@
+.TagChooser {
+  background: white;
+  border-top: 1px solid rgba(black, 0.1);
+  border-bottom: 1px solid rgba(black, 0.1);
+}
+
+.TagChooserChoice {
+  padding: 2px 10px;
+  width: max-content;
+  margin: 5px;
+  text-align: center;
+  border-radius: 20px;
+  background: rgba(black, 0.05);
+  border: 1px solid rgba(black, 0.1);
+  position: relative;
+
+  &.isActive {
+    background: #fc7772;
+    color: white;
+  }
+}
