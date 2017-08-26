@@ -11,7 +11,7 @@ export default ({ item, loadingItem, onClick }) =>
     <div className="flex-row">
       <div
         className="mr2 picture"
-        style={{ backgroundImage: `url(${item.picture})` }}
+        style={{ backgroundImage: `url(/assets/uploads/${item.picture})` }}
       />
       <div className="justify-center">
         <div>
