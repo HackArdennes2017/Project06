@@ -4,6 +4,8 @@ import mime from 'mime'
 import crypto from 'crypto'
 import multer from 'multer'
 
+import resizeImage from './resizeImage'
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, path.resolve(__dirname, '../assets/uploads'))
@@ -27,9 +29,11 @@ import Item from 'server/models/Item'
 const api = express.Router()
 
 api.post('/item', upload.single('picture'), async (req, res) => {
+  const filenameSmall = await resizeImage(req.file.filename)
   const item = new Item({
     ...req.body,
     picture: req.file.filename,
+    pictureSmall: filenameSmall,
   })
   await item.save()
   res.send(item)
