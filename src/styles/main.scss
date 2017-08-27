@@ -24,10 +24,6 @@ html {
   line-height: 1.5;
 }
 
-img {
-  display: block;
-}
-
 *,
 *:before,
 *:after {
@@ -35,8 +31,17 @@ img {
   backface-visibility: hidden;
 }
 
+* {
+  min-height: 0;
+  min-width: 0;
+}
+
 #root {
   min-height: 100vh;
+}
+
+img {
+  display: block;
 }
 
 div {

@@ -16,7 +16,7 @@ export default stats => async (req, res) => {
     if (req.path === '/' && !req.cookies.SARDINE) {
       res.cookie('SARDINE', '1', {
         expires: new Date(Date.now() + 9e6),
-        httpOnly: true,
+        httpOnly: false,
       })
     }
 

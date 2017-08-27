@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
+import Cookies from 'js-cookie'
 
 import Button from 'components/Button'
 import Layout from 'components/Layout'
@@ -20,8 +21,9 @@ class Welcome extends Component {
 
   handleContinue = () => {
     this.setState({ isLoading: true })
+    const hasCookie = !!Cookies.get('SARDINE')
     setTimeout(() => {
-      this.props.push('/festivals')
+      this.props.push(hasCookie ? '/festivals' : '/onboarding')
     }, 800)
   }
 

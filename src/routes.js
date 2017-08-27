@@ -7,12 +7,18 @@ import Give from 'components/Give'
 import ComingSoon from 'components/ComingSoon'
 import Take from 'components/Take'
 import Summary from 'components/Summary'
+import Onboarding from 'components/Onboarding'
 
 export default [
   {
     path: '/',
     exact: true,
     component: Welcome,
+  },
+  {
+    path: '/onboarding',
+    exact: true,
+    component: Onboarding,
   },
   {
     path: '/coming-soon',
