@@ -8,16 +8,13 @@ import cx from 'classnames'
 class Layout extends Component {
   state = { hasEntered: false }
 
-  componentWillMount() {
+  componentDidMount() {
+    window.requestAnimationFrame(() => this.setState({ hasEntered: true }))
     if (!this.props.hideVote) {
       document.body.classList.add('showVote')
     } else {
       document.body.classList.remove('showVote')
     }
-  }
-
-  componentDidMount() {
-    window.requestAnimationFrame(() => this.setState({ hasEntered: true }))
   }
 
   render() {
