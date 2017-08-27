@@ -52,6 +52,7 @@ class Layout extends Component {
                   height: 50,
                   top: 0,
                   width: '100%',
+                  zIndex: 50,
                 }}
                 className="navbar-container"
               >
