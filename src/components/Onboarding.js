@@ -12,6 +12,7 @@ class Onboarding extends Component {
   state = { isLoading: false }
 
   componentDidMount() {
+    document.body.classList.remove('showVote')
     Cookies.set('SARDINE', 1)
   }
 

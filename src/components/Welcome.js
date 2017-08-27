@@ -30,7 +30,7 @@ class Welcome extends Component {
   render() {
     const { isLoading } = this.state
     return (
-      <Layout hideVote withNavBar={false} className="flex-auto items-center p3">
+      <Layout withNavBar={false} className="flex-auto items-center p3">
         <div
           className="justify-center items-center relative"
           style={{ marginTop: 60 }}
@@ -74,7 +74,7 @@ class Welcome extends Component {
         </div>
         <Button
           isLoading={isLoading}
-          className="welcome-button"
+          className="welcome-button mb4"
           onClick={this.handleContinue}
         >
           Je commence !
