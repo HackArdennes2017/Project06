@@ -32,6 +32,7 @@
     "re-carousel": "^2.0.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-ga": "^2.2.0",
     "react-motion": "^0.5.0",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",

@@ -7,11 +7,13 @@ import { ConnectedRouter } from 'react-router-redux'
 import createHistory from 'history/createBrowserHistory'
 import { AppContainer } from 'react-hot-loader'
 import moment from 'moment'
+import ReactGA from 'react-ga'
 import 'moment/locale/fr'
 
 import './vote-sdk'
 
 moment.locale('fr')
+ReactGA.initialize('UA-105376957-3')
 
 import createStore from 'store'
 
