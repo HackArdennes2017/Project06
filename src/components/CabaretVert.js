@@ -7,7 +7,6 @@ import { fetchItems } from 'action/items'
 import Layout from 'components/Layout'
 import Button from 'components/Button'
 import Item from 'components/Item'
-import TagChooser from 'components/TagChooser'
 
 import { tagsTypes } from 'helpers/types'
 
@@ -60,8 +59,6 @@ class CabaretVert extends Component {
           </div>
         </div>
         <div className="mb1 center">J&apos;ai besoin de matériel</div>
-
-        <TagChooser tags={tagsTypes} />
 
         <div>
           {availableItems.map((item, index) =>
