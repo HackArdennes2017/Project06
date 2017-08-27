@@ -30,6 +30,7 @@ body {
 *:after {
   box-sizing: inherit;
   backface-visibility: hidden;
+  user-select: none;
 }
 
 * {

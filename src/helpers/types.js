@@ -14,9 +14,8 @@ export const typeMapping = [
 ]
 
 export const tagsTypes = typeMapping.map(el => {
-    return {name: el.label, isActive: false};
+  return { name: el.label, isActive: false }
 })
-
 
 export const qualityMapping = [
   {
