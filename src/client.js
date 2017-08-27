@@ -24,6 +24,11 @@ import 'styles/main.scss'
 const history = createHistory()
 const store = createStore(history, window.__INITIAL_STATE__)
 
+const logPageView = path => {
+  ReactGA.set({ page: path })
+  ReactGA.pageview(path)
+}
+
 const render = Component => {
   ReactDOM.render(
     <AppContainer>
@@ -34,6 +39,12 @@ const render = Component => {
 }
 
 render(App)
+logPageView('/')
+
+history.listen(location => {
+  const { pathname } = location
+  logPageView(pathname)
+})
 
 if (module.hot) {
   module.hot.accept('components/App', () => {
