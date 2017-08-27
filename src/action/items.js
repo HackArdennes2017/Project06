@@ -23,10 +23,11 @@ export function fetchItems() {
 
 export function deleteItem(item) {
   return {
-    type: 'API:DELETE_ITEMS',
+    type: 'API:DELETE_ITEM',
     payload: {
-      method: 'DELETE',
-      url: `/item/${item._id}`,
+      method: 'POST',
+      url: `/items/${item._id}/delete`,
+      body: item,
     },
   }
 }
@@ -36,7 +37,19 @@ export function bookItem(item) {
     type: 'API:BOOK_ITEM',
     payload: {
       method: 'POST',
-      url: `/item/${item._id}`,
+      url: `/items/${item._id}/book`,
+      body: item,
+    },
+  }
+}
+
+export function receiveItem(item) {
+  return {
+    type: 'API:RECEIVE_ITEM',
+    payload: {
+      method: 'POST',
+      url: `/items/${item._id}/receive`,
+      body: item,
     },
   }
 }

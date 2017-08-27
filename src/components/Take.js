@@ -27,13 +27,10 @@ class Take extends Component {
   handleSubmit = async () => {
     const { item } = this.props
     this.setState({ isLoading: true })
-    await this.props.bookItem(item, {
-      onSuccess: item => {
-        this.props.push({
-          pathname: `/summary/${item._id}`,
-        })
-      },
-    })
+    await this.props.bookItem(item)
+    setTimeout(() => {
+      this.props.push({ pathname: `/summary/${item._id}` })
+    }, 500)
   }
 
   render() {

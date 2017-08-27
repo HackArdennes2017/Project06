@@ -53,13 +53,55 @@ api.get('/receive-item', async (req, res) => {
   const item = await Item.findById(id)
   item.inStock = true
   await item.save()
-  res.send('OK')
+  res.send({ ok: true })
+})
+
+api.post('/items/:id/book', async (req, res) => {
+  try {
+    const { _id } = req.body
+    const item = await Item.findById(_id)
+    item.booked = true
+    await item.save()
+    res.send(item)
+  } catch (err) {
+    res.send(err)
+  }
+})
+
+api.post('/items/:id/delete', async (req, res) => {
+  try {
+    const { _id } = req.body
+    const item = await Item.findById(_id)
+    item.deleted = true
+    await item.save()
+    res.send(item)
+  } catch (err) {
+    res.send(err)
+  }
+})
+
+api.post('/items/:id/receive', async (req, res) => {
+  try {
+    const { _id } = req.body
+    const item = await Item.findById(_id)
+    item.inStock = true
+    await item.save()
+    res.send(item)
+  } catch (err) {
+    res.send(err)
+  }
 })
 
 api.get('/take-item', async (req, res) => {
-  const { id } = req.query
-  await Item.findByIdAndRemove(id)
-  res.send('OK')
+  try {
+    const { id } = req.query
+    const item = await Item.findById(id)
+    item.deleted = true
+    await item.save()
+    res.send(item)
+  } catch (err) {
+    res.send(err)
+  }
 })
 
 export default api

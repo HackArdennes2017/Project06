@@ -4,7 +4,7 @@ import { Motion, spring, presets } from 'react-motion'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 
-import { fetchItems } from 'action/items'
+import { deleteItem, receiveItem } from 'action/items'
 
 import Layout from 'components/Layout'
 import Button from 'components/Button'
@@ -19,39 +19,53 @@ import Button from 'components/Button'
       item,
     }
   },
-  { push, fetchItems },
+  { push, deleteItem, receiveItem },
 )
 class Summary extends Component {
-  state = { inStock: false, isLoading: false }
-  handleBack = async () => {
+  state = { isSwiped: false, isLoading: false, isConfirming: false }
+
+  handleBack = () => {
     this.setState({ isLoading: true })
-    await this.props.fetchItems()
-    this.props.push('/festivals')
+    setTimeout(() => this.props.push('/festivals'), 500)
   }
+
+  handleScan = async () => {
+    const { item, deleteItem, receiveItem } = this.props
+    const mode = item.inStock ? 'take' : 'give'
+    this.setState({ isConfirming: true })
+    if (mode === 'take') {
+      await deleteItem(item)
+    } else if (mode === 'give') {
+      await receiveItem(item)
+    }
+    setTimeout(
+      () =>
+        this.setState({
+          isSwiped: true,
+        }),
+      500,
+    )
+  }
+
   render() {
     const { item } = this.props
-    const { inStock, isLoading } = this.state
+    const { isSwiped, isLoading, isConfirming } = this.state
 
     if (!item) {
       return ''
     }
-    const mode = item.inStock ? 'take' : 'give'
+    const mode = item.booked ? 'take' : 'give'
     return (
       <Motion
         style={{
-          translate: spring(inStock ? -100 : 0, {
+          translate: spring(isSwiped ? -100 : 0, {
             ...presets.gentle,
             damping: 17,
           }),
         }}
       >
         {m =>
-          <Layout
-            title="Récap"
-            withoutBack
-            onClick={() => this.setState({ inStock: true })}
-            style={{ overflowX: 'hidden' }}
-          >
+          <Layout title="Récap" withoutBack style={{ overflowX: 'hidden' }}>
             <div
               className="flex-auto relative justify-center items-center"
               style={{
@@ -68,6 +82,15 @@ class Summary extends Component {
                   top: 0,
                 }}
               >
+                <Button
+                  className="mb3"
+                  style={{ width: 200, background: '#fc7772' }}
+                  onClick={this.handleScan}
+                  isLoading={isConfirming}
+                >
+                  {'Scan now'}
+                </Button>
+
                 <div style={{ boxShadow: 'rgba(0, 0, 0, 0.2) 0 4px 12px 2px' }}>
                   {mode === 'give' &&
                     <QRCode

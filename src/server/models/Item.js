@@ -12,4 +12,6 @@ export default mongoose.model('Item', {
   picture: String,
   pictureSmall: String,
   inStock: { type: Boolean, default: false },
+  booked: { type: Boolean, default: false },
+  deleted: { type: Boolean, default: false },
 })
