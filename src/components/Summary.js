@@ -43,7 +43,7 @@ class Summary extends Component {
         this.setState({
           isSwiped: true,
         }),
-      500,
+      700,
     )
   }
 
@@ -86,7 +86,10 @@ class Summary extends Component {
                 }}
               >
                 <div
-                  style={{ boxShadow: 'rgba(0, 0, 0, 0.2) 0 4px 12px 2px' }}
+                  style={{
+                    boxShadow: 'rgba(0, 0, 0, 0.2) 0 4px 12px 2px',
+                    position: 'relative',
+                  }}
                   onClick={this.handleScan}
                 >
                   {mode === 'give' &&
@@ -97,6 +100,35 @@ class Summary extends Component {
                     <QRCode
                       value={`https://team06.hackardennes.com/api/take-item?id=${item._id}`}
                     />}
+                  <Motion
+                    style={{
+                      opacity: spring(isConfirming ? 1 : 0),
+                      offset: spring(isConfirming ? 0 : 20),
+                    }}
+                  >
+                    {m =>
+                      <div
+                        className="items-center justify-center"
+                        style={{
+                          opacity: m.opacity,
+                          background: 'rgba(255, 255, 255, 0.8)',
+                          position: 'absolute',
+                          left: 0,
+                          right: 0,
+                          top: 0,
+                          bottom: 0,
+                        }}
+                      >
+                        <img
+                          alt="spinner"
+                          src="/assets/spinner-black.svg"
+                          height="30px"
+                          style={{
+                            transform: `translate3d(0, ${m.offset}px, 0)`,
+                          }}
+                        />
+                      </div>}
+                  </Motion>
                 </div>
                 <div
                   style={{

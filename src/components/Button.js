@@ -19,7 +19,6 @@ class Button extends Component {
       disabled,
       ...props
     } = this.props
-    console.log(isLoading)
 
     return (
       <Motion

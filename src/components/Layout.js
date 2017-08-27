@@ -31,6 +31,7 @@ class Layout extends Component {
       withoutBack,
       style,
       push, // eslint-disable-line
+      hideVote, // eslint-disable-line
       ...props
     } = this.props
     const { hasEntered } = this.state
