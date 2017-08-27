@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+cp ../TOTO/dist/* dist/
+./replace
+NODE_ENV=production pm2 restart prod
