@@ -18,6 +18,11 @@ async function add([type, quality, picture, pictureSmall]) {
 }
 
 async function doAll() {
+  const items = await Item.find({ inStock: true })
+  if (items.length > 15) {
+    process.exit(0)
+    return
+  }
   await add([
     'tent',
     'good',
