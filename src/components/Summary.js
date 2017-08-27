@@ -112,22 +112,12 @@ class Summary extends Component {
                     Pour récupérer votre matériel, vous trouverez le dépôt de
                     stockage Sardines à l&apos;entrée du camping.
                   </p>}
-                {mode === 'give' &&
-                  <img
-                    width="300"
-                    height="auto"
-                    alt="map"
-                    className="PhotoChosen mt3"
-                    src="/assets/map.jpg"
-                  />}
-                {mode === 'take' &&
-                  <img
-                    width="300"
-                    height="auto"
-                    alt="map"
-                    className="PhotoChosen mt3"
-                    src="/assets/map-huma.jpg"
-                  />}
+                <img
+                  alt="map"
+                  className="PhotoChosen mt3"
+                  src="/assets/map.jpg"
+                  style={{ width: '100%' }}
+                />
               </div>
               <div
                 className="px3 justify-center items-center"

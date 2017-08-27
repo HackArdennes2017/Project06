@@ -98,17 +98,30 @@ input:focus {
 
 #pl3b15c173-container {
   position: fixed !important;
-  background-color: transparent !important;
   bottom: 0 !important;
+  background-color: white !important;
+  justify-content: center;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+#pl3b15c173-container p {
+  padding: 0 10px;
+  font-size: 14px;
 }
 
 .pl3b15c173-button {
   font-family: Interface, sans-serif;
-  border-radius: 100px;
-  height: 40px !important;
+  border-radius: 3px;
   text-transform: uppercase;
   background-color: var(--orange);
   border: none;
   color: white;
   font-weight: bold;
+}
+
+.pl3b15c173-input {
+  font-family: Interface, sans-serif;
+  border-radius: 3px;
+  border: 1px solid #ddd;
 }

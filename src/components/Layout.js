@@ -24,6 +24,7 @@ class Layout extends Component {
       backRoute,
       replace,
       withoutBack,
+      style,
       push, // eslint-disable-line
       ...props
     } = this.props
@@ -89,7 +90,11 @@ class Layout extends Component {
               </div>}
             <div
               className={cx('flex-auto', className)}
-              style={{ opacity: m.opacity, marginTop: withNavBar ? 50 : 0 }}
+              style={{
+                opacity: m.opacity,
+                marginTop: withNavBar ? 50 : 0,
+                ...style,
+              }}
               {...props}
             >
               {children}
