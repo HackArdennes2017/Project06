@@ -30,7 +30,7 @@ class Welcome extends Component {
   render() {
     const { isLoading } = this.state
     return (
-      <Layout withNavBar={false} className="flex-auto items-center p3">
+      <Layout hideVote withNavBar={false} className="flex-auto items-center p3">
         <div
           className="justify-center items-center relative"
           style={{ marginTop: 60 }}

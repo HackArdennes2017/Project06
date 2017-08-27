@@ -6,11 +6,15 @@ import compression from 'compression'
 import path from 'path'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
+import moment from 'moment'
 import cookieParser from 'cookie-parser'
+import 'moment/locale/fr'
 
 import config from 'config'
 import render from 'server/render'
 import api from 'server/api'
+
+moment.locale('fr')
 
 if (config.env === 'production') {
   mongoose.connect('mongodb://localhost/sardine')

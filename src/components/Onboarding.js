@@ -14,7 +14,7 @@ class Onboarding extends Component {
     this.setState({ isLoading: true })
     setTimeout(() => {
       this.props.push('/festivals')
-    }, 800)
+    }, 0)
   }
 
   render() {
@@ -23,7 +23,7 @@ class Onboarding extends Component {
     return (
       <Carousel style={{ flex: 1 }} widgets={[Dot]}>
         <div
-          className="flex-auto items-center justify-center px4 center relative"
+          className="flex-auto items-center justify-center px3 center"
           style={{ backgroundColor: 'white' }}
         >
           <img src="/assets/onboarding/logo.png" style={{ width: 200 }} />
@@ -37,7 +37,7 @@ class Onboarding extends Component {
           </div>
         </div>
         <div
-          className="flex-auto items-center justify-center px4 center"
+          className="flex-auto items-center justify-center px3 center"
           style={{ backgroundColor: 'white' }}
         >
           <img src="/assets/onboarding/give.png" style={{ width: 200 }} />
@@ -51,7 +51,7 @@ class Onboarding extends Component {
           </div>
         </div>
         <div
-          className="flex-auto items-center justify-center px4 center"
+          className="flex-auto items-center justify-center px3 center"
           style={{ backgroundColor: 'white' }}
         >
           <img src="/assets/onboarding/take.png" style={{ width: 200 }} />
@@ -68,7 +68,7 @@ class Onboarding extends Component {
             onClick={this.handleContinue}
             style={{ alignSelf: 'stretch' }}
           >
-            Continuer !
+            Choisir mon festival !
           </Button>
         </div>
       </Carousel>

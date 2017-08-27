@@ -65,33 +65,30 @@ class Summary extends Component {
         }}
       >
         {m =>
-          <Layout title="Récap" withoutBack style={{ overflowX: 'hidden' }}>
+          <Layout
+            title="Récap"
+            withoutBack
+            style={{ overflowX: 'hidden', marginBottom: 60 }}
+          >
             <div
-              className="flex-auto relative justify-center items-center"
+              className="flex-auto relative items-center"
               style={{
                 transform: `translate3d(${m.translate}%, 0, 0)`,
               }}
             >
               <div
-                className="px3 items-center justify-center"
+                className="p3 items-center"
                 style={{
                   position: 'absolute',
                   left: 0,
                   right: 0,
-                  bottom: 0,
                   top: 0,
                 }}
               >
-                <Button
-                  className="mb3"
-                  style={{ width: 200, background: '#fc7772' }}
+                <div
+                  style={{ boxShadow: 'rgba(0, 0, 0, 0.2) 0 4px 12px 2px' }}
                   onClick={this.handleScan}
-                  isLoading={isConfirming}
                 >
-                  {'Scan now'}
-                </Button>
-
-                <div style={{ boxShadow: 'rgba(0, 0, 0, 0.2) 0 4px 12px 2px' }}>
                   {mode === 'give' &&
                     <QRCode
                       value={`https://team06.hackardennes.com/api/receive-item?id=${item._id}`}
@@ -101,31 +98,45 @@ class Summary extends Component {
                       value={`https://team06.hackardennes.com/api/take-item?id=${item._id}`}
                     />}
                 </div>
+                <div
+                  style={{
+                    opacity: 0.6,
+                    fontSize: 13,
+                  }}
+                  className="center mt1"
+                >
+                  Clique sur le QRcode 😉
+                </div>
                 {mode === 'give' &&
-                  <p className="mt3" style={{ textAlign: 'center' }}>
+                  <p
+                    className="mt3"
+                    style={{ textAlign: 'center', fontSize: 14 }}
+                  >
                     Vous pouvez vous diriger vers le point de collecte Sardines
                     pour déposer votre matériel. Il se situe à la sortie du
                     camping, sur la droite.
                   </p>}
                 {mode === 'take' &&
-                  <p className="mt3" style={{ textAlign: 'center' }}>
+                  <p
+                    className="mt3"
+                    style={{ textAlign: 'center', fontSize: 14 }}
+                  >
                     Pour récupérer votre matériel, vous trouverez le dépôt de
                     stockage Sardines à l&apos;entrée du camping.
                   </p>}
                 <img
                   alt="map"
-                  className="PhotoChosen mt3"
+                  className="PhotoChosen mt2"
                   src="/assets/map.jpg"
                   style={{ width: '100%' }}
                 />
               </div>
               <div
-                className="px3 justify-center items-center"
+                className="p3 items-center"
                 style={{
                   position: 'absolute',
                   left: '100%',
                   width: '100%',
-                  bottom: 0,
                   top: 0,
                 }}
               >
@@ -143,7 +154,7 @@ class Summary extends Component {
                     check_circle
                   </i>}
                 {mode === 'give' &&
-                  <div className="mt2 mb4" style={{ textAlign: 'center' }}>
+                  <div className="mt2 mb3" style={{ textAlign: 'center' }}>
                     <p className="mb1">
                       Merci pour votre <strong>engagement</strong> !<br />
                       Vous êtes désormais un campeur social et solidaire.
@@ -163,7 +174,7 @@ class Summary extends Component {
                     </p>
                   </div>}
                 {mode === 'take' &&
-                  <p className="mt2 mb4" style={{ textAlign: 'center' }}>
+                  <p className="mt2 mb3" style={{ textAlign: 'center' }}>
                     Matériel récupéré ! Profitez bien de votre festival !
                   </p>}
                 <Button

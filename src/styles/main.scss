@@ -43,12 +43,18 @@ body {
 
 img {
   display: block;
+  flex-shrink: 0;
 }
 
 div {
   display: flex;
   flex-direction: column;
   border-color: var(--border-color);
+  flex-shrink: 0;
+}
+
+p {
+  flex-shrink: 0;
 }
 
 input:active,
@@ -103,11 +109,17 @@ input:focus {
   justify-content: center;
   text-align: center;
   border-top: 1px solid #ddd;
+  transform: translateY(65px);
+  transition: transform ease-in-out 300ms;
 }
 
-#pl3b15c173-container p {
+body.showVote #pl3b15c173-container {
+  transform: translateY(0);
+}
+
+#pl3b15c173-container h1 {
   padding: 0 10px;
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .pl3b15c173-button {
