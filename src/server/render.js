@@ -13,13 +13,6 @@ import App from 'components/App'
 
 export default stats => async (req, res) => {
   try {
-    if (req.path === '/' && !req.cookies.SARDINE) {
-      res.cookie('SARDINE', '1', {
-        expires: new Date(Date.now() + 9e6),
-        httpOnly: false,
-      })
-    }
-
     const store = createStore()
 
     await store.dispatch(fetchItems())

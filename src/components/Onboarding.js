@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
+import Cookies from 'js-cookie'
 
 import Carousel from 're-carousel/dist/carousel'
 import Dot from 'components/Dot'
@@ -9,6 +10,10 @@ import Button from 'components/Button'
 @connect(null, { push })
 class Onboarding extends Component {
   state = { isLoading: false }
+
+  componentDidMount() {
+    Cookies.set('SARDINE', 1)
+  }
 
   handleContinue = () => {
     this.setState({ isLoading: true })
