@@ -37,8 +37,8 @@ class Onboarding extends Component {
           </div>
           <div style={{ fontSize: 14, opacity: 0.7 }}>
             Avec les Sardines fini le gaspillage du matériel de camping à chaque
-            festival, offrez une nouvelle vie à vos objets en les partageant
-            avec d&apos;autres&nbsp;!
+            festival, offre une nouvelle vie à vos objets en les partageant avec
+            d&apos;autres&nbsp;!
           </div>
         </div>
         <div

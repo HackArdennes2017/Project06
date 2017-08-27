@@ -45,8 +45,8 @@ class About extends Component {
                   disposition directement sur le site du festival
                 </li>
                 <li>
-                  Faire don du matériel de camping qu’il ne souhaite/peut pas
-                  ramener chez lui
+                  Faire don du matériel de camping qu’ils ne souhaitent/peuvent
+                  pas ramener chez eux
                 </li>
               </ul>
             </li>
