@@ -102,7 +102,7 @@ class Festivals extends Component {
           />
           <i className="material-icons">search</i>
         </div>
-        <div>
+        <div style={{ marginBottom: 80 }}>
           {Object.keys(groupedFest).map(when =>
             <div key={when}>
               <Label
