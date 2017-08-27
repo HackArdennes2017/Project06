@@ -41,7 +41,10 @@ class Layout extends Component {
             {withNavBar &&
               <div
                 style={{
+                  position: 'fixed',
                   height: 50,
+                  top: 0,
+                  width: '100%',
                 }}
                 className="navbar-container"
               >
@@ -86,7 +89,7 @@ class Layout extends Component {
               </div>}
             <div
               className={cx('flex-auto', className)}
-              style={{ opacity: m.opacity }}
+              style={{ opacity: m.opacity, marginTop: withNavBar ? 50 : 0 }}
               {...props}
             >
               {children}

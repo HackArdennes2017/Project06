@@ -113,7 +113,7 @@ class Give extends Component {
           item={item}
           onChange={isLoading ? undefined : this.handleChangeItem}
         />
-        <div className="p3">
+        <div className="p3" style={{ marginBottom: 50 }}>
           <Button
             isLoading={isLoading}
             disabled={!base64}

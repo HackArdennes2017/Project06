@@ -12,7 +12,7 @@ class ComingSoon extends Component {
         <div
           style={{
             fontSize: 30,
-            marginTop: 50,
+            marginTop: 30,
           }}
         >
           {'Coming... soon?'}

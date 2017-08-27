@@ -14,7 +14,8 @@
   --green: #8bc34a;
 }
 
-html {
+html,
+body {
   font-family: Interface, sans-serif;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -93,4 +94,21 @@ input:focus {
   align-items: center;
   padding: 0 var(--space-2);
   color: white;
+}
+
+#pl3b15c173-container {
+  position: fixed !important;
+  background-color: transparent !important;
+  bottom: 0 !important;
+}
+
+.pl3b15c173-button {
+  font-family: Interface, sans-serif;
+  border-radius: 100px;
+  height: 40px !important;
+  text-transform: uppercase;
+  background-color: var(--orange);
+  border: none;
+  color: white;
+  font-weight: bold;
 }
