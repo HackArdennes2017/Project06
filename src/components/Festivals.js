@@ -17,14 +17,6 @@ import {
 
 const festivals = [
   {
-    name: 'La Fête de la Mirabelle',
-    start: moment('2017-08-18'),
-    end: moment('2017-08-20'),
-    url: '/coming-soon',
-    picture: 'mirabelle.jpg',
-    when: 'passed',
-  },
-  {
     name: 'La Cabaret Vert',
     start: moment('2017-08-24'),
     end: moment('2017-08-27'),
@@ -36,7 +28,7 @@ const festivals = [
     name: "Fête de l'Humanité",
     start: moment('2017-09-15'),
     end: moment('2017-09-17'),
-    url: '/huma',
+    url: '/coming-soon',
     picture: 'huma.jpg',
     when: 'coming',
   },
