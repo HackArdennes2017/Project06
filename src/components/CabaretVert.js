@@ -35,7 +35,11 @@ class CabaretVert extends Component {
     )
 
     return (
-      <Layout title="Cabaret Vert" backRoute="/festivals">
+      <Layout
+        title="Cabaret Vert"
+        backRoute="/festivals"
+        style={{ marginBottom: 80 }}
+      >
         <div className="px3 pt3">
           <div className="mb1 center">J&apos;aimerai donner du matériel</div>
           <Button
