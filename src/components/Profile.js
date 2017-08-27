@@ -4,10 +4,8 @@ import { connect } from 'react-redux'
 import Layout from 'components/Layout'
 import Item from 'components/Item'
 
-@connect(({ items }) => ({ item: items[items.length - 1] }))
 class Profile extends Component {
   render() {
-    const { item } = this.props
     return (
       <Layout title="Mon Profil" backRoute="/festivals">
         <div
@@ -63,13 +61,6 @@ class Profile extends Component {
             />
           </div>
         </div>
-        {item &&
-          <div>
-            <div>Mes objets en ligne</div>
-            <div>
-              <Item item={item} />
-            </div>
-          </div>}
       </Layout>
     )
   }
